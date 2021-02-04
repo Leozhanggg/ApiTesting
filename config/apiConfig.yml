@@ -1,0 +1,6 @@
+PyDemo:
+  host: 10.88.88.141:20037
+  headers:
+    Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+  cookies:
+  headtoken: xu5YwIZFkVGczMn0H0rot2ps7zRIbvrTHNwMXx1sJXg=
