@@ -12,10 +12,10 @@ pattern_str = r'\$RandStr\(([0-9]*?)\)'
 pattern_int = r'\$RandInt\(([0-9]*,[0-9]*?)\)'
 pattern_choice = r"\$RandChoice\((.*?)\)"
 pattern_float = r'\$RandFloat\(([0-9]*,[0-9]*,[0-9]*)\)'
-pattern_wxid = r'\$GenWxid\(\)'
-pattern_guid = r'\$GenGuid\(\)'
 pattern_phone = r'\$GenPhone\(\)'
-pattern_no = r'\$GenNo\((.*?)\)'
+pattern_guid = r'\$GenGuid\(\)'
+pattern_wxid = r'\$GenWxid\(\)'
+pattern_noid = r'\$GenNoid\((.*?)\)'
 pattern_date = r'\$GenDate\((.*?)\)'
 pattern_datetime = r'\$GenDatetime\((.*?)\)'
 
@@ -100,7 +100,7 @@ def replace_random(param):
 	str_list = re.findall(pattern_str, str(param))
 	choice_list = re.findall(pattern_choice, str(param))
 	guid_list = re.findall(pattern_guid, str(param))
-	no_list = re.findall(pattern_no, str(param))
+	noid_list = re.findall(pattern_noid, str(param))
 	phone_list = re.findall(pattern_phone, str(param))
 	wxid_list = re.findall(pattern_wxid, str(param))
 	date_list = re.findall(pattern_date, str(param))
@@ -128,9 +128,9 @@ def replace_random(param):
 		for each in datetime_list:
 			param = re.sub(pattern_datetime, str(generate_datetime(each)), param, count=1)
 
-	if len(no_list):
-		for each in no_list:
-			param = re.sub(pattern_no, str(generate_noid(each)), param, count=1)
+	if len(noid_list):
+		for each in noid_list:
+			param = re.sub(pattern_noid, str(generate_noid(each)), param, count=1)
 
 	if len(phone_list):
 		for i in phone_list:
@@ -182,14 +182,14 @@ def replace(param, relevance=None):
 
 
 if __name__ == '__main__':
-	print(replace('$Eval(${UNIT_CODE}*1000+1)', {'UNIT_CODE': 9876543210}))
-	print(replace('$RandInt(1,9)'))
-	print(replace('$RandStr(10)'))
-	print(replace('$RandChoice(a,b,c,d)'))
-	print(replace('$GenPhone()'))
-	print(replace('$GenWxid()'))
-	print(replace('$GenGuid()'))
-	print(replace('$GenNo()'))
-	print(replace("$GenNo(y-18)"))
-	print(replace("$GenDate(m+1)"))
-	print(replace("$GenDatetime(d-1)"))
+	print('替换变量并计算表达式：', replace('$Eval(${unitCode}*1000+1)', {'unitCode': 9876543210}))
+	print('生成1-9之间的随机数：', replace('$RandInt(1,9)'))
+	print('生成10位随机字符：', replace('$RandStr(10)'))
+	print('从列表中随机选择：', replace('$RandChoice(a,b,c,d)'))
+	print('生成一个伪手机号：', replace('$GenPhone()'))
+	print('生成一个guid：', replace('$GenGuid()'))
+	print('生成一个伪微信ID：', replace('$GenWxid()'))
+	print('生成一个伪身份证：', replace('$GenNoid()'))
+	print('生成一个18岁伪身份证：', replace("$GenNoid(y-18)"))
+	print('生成下个月今天的日期：', replace("$GenDate(m+1)"))
+	print('生成昨天此时的时间：', replace("$GenDatetime(d-1)"))
