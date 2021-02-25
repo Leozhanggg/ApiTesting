@@ -19,13 +19,13 @@ def write_case_yaml(har_path):
     :return:
     """
     case_file_list = list()
-    logging.debug("读取文件主目录: {}".format(har_path))
+    logging.info("读取抓包文件主目录: {}".format(har_path))
     har_list = os.listdir(har_path)
     for each in har_list:
         ext_name = os.path.splitext(each)[1]
         if ext_name == '.chlsj':
 
-            logging.debug("读取抓包文件: {}".format(each))
+            logging.info("读取抓包文件: {}".format(each))
             file_path = har_path+'/'+each
             with open(file_path, 'r', encoding='utf-8') as f:
                 har_cts = json.loads(f.read())
@@ -37,8 +37,8 @@ def write_case_yaml(har_path):
                 method = har_ct["method"]
                 path = har_ct["path"]
                 headers = har_ct["request"]["header"]['headers']
-                title = path.split("/")[-1]
-                module = path.split("/")[-2]
+                title = path.split("/")[-1].replace('-', '')
+                module = path.split("/")[-2].replace('-', '')
 
                 # 创建模块目录
                 module_path = har_path.split('data')[0] + '/page/' + module
@@ -50,7 +50,7 @@ def write_case_yaml(har_path):
                 # 定义api通过配置
                 api_config = dict()
                 simp_header = dict()
-                for each in headers:
+                for header in headers:
                     # 去除基础请求头
                     base_header = ['Host',
                                    'Content-Length',
@@ -61,8 +61,8 @@ def write_case_yaml(har_path):
                                    'Accept',
                                    'Accept-Encoding',
                                    'Accept-Language']
-                    if each['name'] not in base_header:
-                        simp_header[each['name']] = each['value']
+                    if header['name'] not in base_header:
+                        simp_header[header['name']] = header['value']
                 api_config['host'] = host+':'+str(port)
                 # 判断是否存在自定义消息头
                 if simp_header:
@@ -132,6 +132,7 @@ def write_case_yaml(har_path):
                         param_dict["summary"] = title
                         param_dict["body"] = parameter
                         param_file = module_path+'/'+param_name
+                        logging.info("生成请求文件: {}".format(param_file))
                         write_json_file(param_file, [param_dict])
                     test_case["parameter"] = param_name
                 else:
@@ -154,6 +155,7 @@ def write_case_yaml(har_path):
                         result_dict["summary"] = title
                         result_dict["body"] = expected_request
                         result_file = module_path + '/' + result_name
+                        logging.info("生成响应文件: {}".format(result_file))
                         write_json_file(result_file, [result_dict])
                     check["expected_result"] = result_name
                 else:
@@ -170,7 +172,7 @@ def write_case_yaml(har_path):
                 case_name = 'test_'+title+'.yaml'
                 case_file = module_path+'/'+case_name
                 if not os.path.exists(case_file):
-                    logging.debug("写入测试文件: {}".format(case_file))
+                    logging.info("生成用例文件: {}".format(case_file))
                     write_yaml_file(case_file, case_list)
 
                 case_file_list.append(case_file)
