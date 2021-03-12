@@ -14,7 +14,7 @@ test_case:
 - summary: initCanSelInfo
   describe: test_initCanSelInfo
   parameter: initCanSelInfo_request.json
-  check:
+  check_body:
     check_type: check_json
     expected_code: 200
     expected_result: initCanSelInfo_response.json

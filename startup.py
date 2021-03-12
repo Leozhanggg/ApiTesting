@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     elif RC['auto_switch'] == 1:
         # 如果扫描路径为空在则取项目page目录
-        if not os.path.exists(RC['scan_dir']):
+        if not RC['scan_dir']:
             RC['scan_dir'] = PAGE_DIR
         logging.info("根据手工编写用例，自动生成测试脚本，然后运行测试！")
         writeCase.write_case(RC['scan_dir'], auto_yaml=False)

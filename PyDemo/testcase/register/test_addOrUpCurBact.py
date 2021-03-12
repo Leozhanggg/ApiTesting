@@ -10,7 +10,7 @@ from comm.utils.readYaml import read_yaml_data
 from comm.unit.initializePremise import init_premise
 from comm.unit.apiSend import send_request
 from comm.unit.checkResult import check_result
-case_yaml = os.path.realpath(__file__).replace('testcase', 'page').replace('py', 'yaml')
+case_yaml = os.path.realpath(__file__).replace('testcase', 'page').replace('.py', '.yaml')
 case_path = os.path.dirname(case_yaml)
 case_dict = read_yaml_data(case_yaml)
 

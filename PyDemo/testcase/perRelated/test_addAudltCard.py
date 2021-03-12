@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # @Time    : 2021/2/2
 # @Author  : Leo Zhang
-# @File    : test_initCanSelInfo.py
+# @File    : test_addAudltCard.py
 # ****************************
 import os
 import allure
@@ -16,11 +16,11 @@ case_dict = read_yaml_data(case_yaml)
 
 
 @allure.feature(case_dict["test_info"]["title"])
-class TestRegister:
+class TestPerrelated:
 
     @pytest.mark.parametrize("case_data", case_dict["test_case"])
-    @allure.story("test_initCanSelInfo")
-    def test_initCanSelInfo(self, case_data):
+    @allure.story("test_addAudltCard")
+    def test_addAudltCard(self, case_data):
         # 初始化请求：执行前置接口+替换关联变量
         test_info, case_data = init_premise(case_dict["test_info"], case_data, case_path)
         # 发送当前接口

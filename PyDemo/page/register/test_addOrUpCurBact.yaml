@@ -14,7 +14,7 @@ test_case:
 - summary: addOrUpCurBact
   describe: test_addOrUpCurBact
   parameter: addOrUpCurBact_request.json
-  check:
+  check_body:
     check_type: check_json
     expected_code: 200
     expected_result:

@@ -21,7 +21,7 @@ test_case:
       pageSize: 10
       page: 0
     headtoken: ${headtoken}
-  check:
+  check_body:
     check_type: check_json
     expected_code: 200
     expected_result: getAdultCurbactList_response.json
