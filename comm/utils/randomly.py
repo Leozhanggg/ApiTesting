@@ -111,12 +111,12 @@ def generate_date(expr=''):
 
 
 def generate_datetime(expr=''):
-	"""生成日期时间对象(含时分秒毫秒)
+	"""生成日期时间对象(含时分秒)
 
 	:param expr: 日期表达式，如"d-1"代表日期减1
 	:return:
 	"""
-	now = datetime.datetime.now()
+	now = datetime.datetime.now().replace(microsecond=0)
 	if expr:
 		try:
 			mark = expr[:1]

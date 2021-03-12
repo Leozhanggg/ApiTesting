@@ -160,7 +160,7 @@ def write_case_yaml(har_path):
                     check["expected_result"] = result_name
                 else:
                     check["expected_result"] = expected_request
-                test_case["check"] = check
+                test_case["check_body"] = check
                 test_case_list.append(test_case)
 
                 # 合并测试信息、用例信息
