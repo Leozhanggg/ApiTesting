@@ -41,7 +41,7 @@ maxfail: 20
 interval: 1
 
 >>> 测试结果校验方式说明（共5种方式）：
-> no_check：不做任何校验
+> no_check：不做任何校验\n
 > check_code：仅校验接口返回码code
 > check_json：校验接口返回码code，并进行json格式比较返回结果（默认方式）
 > entirely_check：校验接口返回码code，并进行完整比较返回结果
