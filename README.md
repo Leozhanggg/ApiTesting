@@ -13,11 +13,12 @@ ApiTesting全链路接口自动化测试框架 - 新增数据库校验（二）
 > 介绍：https://www.cnblogs.com/leozhanggg/p/14522084.html
 
 
->>>运行配置说明：
+>>> 运行配置说明：
+
 > 运行项目名
 project_name: PyDemo
 
->>> 运行模式:
+> 运行模式:
 auto_switch: 2
 0 - 不开启自动生成测试用例功能，将直接运行测试
 1 - 根据手工编写用例，自动生成测试脚本，然后运行测试
