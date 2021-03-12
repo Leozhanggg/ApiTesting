@@ -1,0 +1,20 @@
+PyDemo:
+  # 数据库查询超时时长(不得小于1)
+  timeout: 3
+  # MySQL配置信息
+  mysql_info:
+    address: 10.88.88.88:3160
+    db: test
+    user: test
+    auth: test
+  # HBase配置信息(需要启动phoenix查询服务)
+  hbase_info:
+    address: 10.88.88.88:8765
+    db: test
+  # ES配置信息(需要开放http查询服务)
+  es_info:
+    address: 10.88.88.88:9200
+    db: test
+  # Solr配置信息
+  solr_info:
+    address: 10.88.88.88:8883

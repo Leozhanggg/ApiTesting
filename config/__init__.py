@@ -12,6 +12,7 @@ ROOT_DIR = str(os.path.realpath(__file__)).split('config')[0].replace('\\', '/')
 # 获取配置文件路径
 API_CONFIG = ROOT_DIR+'config/apiConfig.yml'
 RUN_CONFIG = ROOT_DIR+'config/runConfig.yml'
+DB_CONFIG = ROOT_DIR+'config/dbConfig.yml'
 
 # 获取运行配置信息
 RC = read_yaml_data(RUN_CONFIG)
