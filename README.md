@@ -15,6 +15,8 @@ ApiTesting全链路接口自动化测试框架 - 初版（一）
 ApiTesting全链路接口自动化测试框架 - 新增数据库校验（二）
 > 介绍：https://www.cnblogs.com/leozhanggg/p/14522084.html
 
+ApiTesting全链路接口自动化测试框架 - 实战应用
+> 介绍：https://www.cnblogs.com/leozhanggg/p/14519800.html
 
 运行配置说明：
 
