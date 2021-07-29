@@ -33,7 +33,7 @@ def write_case_yaml(har_path):
 
                 # 获取接口基本信息
                 host = har_ct["host"]
-                port = har_ct["port"]
+                port = har_ct["actualPort"]
                 method = har_ct["method"]
                 path = har_ct["path"]
                 headers = har_ct["request"]["header"]['headers']

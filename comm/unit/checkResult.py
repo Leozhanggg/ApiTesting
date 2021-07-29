@@ -9,7 +9,6 @@ import operator
 import logging
 from decimal import Decimal
 from comm.unit import readRelevance, replaceRelevance
-from comm.unit import queryDatabase as qdb
 
 
 def check_json(src_data, dst_data):
@@ -203,6 +202,7 @@ def check_result(case_data, code, data):
 
     # 判断是否存在数据库校验标识
     if 'check_db' in case_data:
+        from comm.unit import queryDatabase as qdb
         check_db = case_data['check_db']
         # 获取数据库期望结果：获取期望结果-获取关联值-替换关联值
         data['parameter'] = case_data['parameter']

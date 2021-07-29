@@ -3,8 +3,8 @@
 # @Author  : Leo Zhang
 # @File    : queryHBase.py
 # **************************
-# import phoenixdb
-# import phoenixdb.cursor
+import phoenixdb
+import phoenixdb.cursor
 from comm import *
 import logging
 
