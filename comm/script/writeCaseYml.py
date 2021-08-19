@@ -49,6 +49,9 @@ def write_case_yaml(har_path):
 
                 # 定义api通过配置
                 api_config = dict()
+                api_config['cookies'] = None
+                api_config['scheme'] = har_ct["scheme"]
+                api_config['host'] = host + ':' + str(port)
                 simp_header = dict()
                 for header in headers:
                     # 去除基础请求头
@@ -63,13 +66,11 @@ def write_case_yaml(har_path):
                                    'Accept-Language']
                     if header['name'] not in base_header:
                         simp_header[header['name']] = header['value']
-                api_config['host'] = host+':'+str(port)
                 # 判断是否存在自定义消息头
                 if simp_header:
                     api_config['headers'] = simp_header
                 else:
                     api_config['headers'] = None
-                api_config['cookies'] = None
                 # 检查是否已存在项目配置信息，没有则写入
                 rconfig = read_yaml_data(API_CONFIG)
                 if rconfig:
@@ -85,7 +86,7 @@ def write_case_yaml(har_path):
                 test_info = dict()
                 test_info["title"] = module
                 test_info["host"] = '${host}'
-                test_info["scheme"] = har_ct["scheme"]
+                test_info["scheme"] = '${scheme}'      # har_ct["scheme"]
                 test_info["method"] = method
                 test_info["address"] = path
                 test_info["mime_type"] = har_ct["request"]["mimeType"]
@@ -107,12 +108,16 @@ def write_case_yaml(har_path):
                     else:
                         parameter_list = har_ct["query"]
 
-                    if "&" in parameter_list:
-                        for key in parameter_list.split("&"):
-                            val = key.split("=")
-                            parameter[val[0]] = val[1]
+                    if parameter_list:
+                        if "&" in parameter_list:
+                            for key in parameter_list.split("&"):
+                                val = key.split("=")
+                                parameter[val[0]] = val[1]
+                        else:
+                            parameter = json.loads(parameter_list)
                     else:
-                        parameter = json.loads(parameter_list)
+                        parameter = None
+
                 except Exception as e:
                     logging.error("未找到parameter: %s" % e)
                     raise e

@@ -37,6 +37,10 @@ def write_case(case_path, auto_yaml=True):
         if not os.path.exists(case_path):
             os.makedirs(case_path)
 
+        # 判断测试用例脚本是否存在
+        if os.path.exists(test_script):
+            continue
+
         # 替换模板内容
         file_data = ''
         with open(temp_file, "r", encoding="utf-8") as f:
