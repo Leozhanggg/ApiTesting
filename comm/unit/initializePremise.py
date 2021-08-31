@@ -6,6 +6,7 @@
 import logging
 import time
 import json
+import os
 from json import JSONDecodeError
 from config import PAGE_DIR, PROJECT_NAME, API_CONFIG
 from comm.unit import apiSend, readRelevance, replaceRelevance
@@ -60,8 +61,9 @@ def init_premise(test_info, case_data, case_path):
     if pre_case_path:
         # 获取前置接口用例
         logging.info("获取前置接口测试用例：{}".format(pre_case_path))
-        pre_case_path = PAGE_DIR + pre_case_path
-        pre_case_dict = readYaml.read_yaml_data(pre_case_path)
+        pre_case_yaml = PAGE_DIR + pre_case_path
+        pre_case_path = os.path.dirname(pre_case_yaml)
+        pre_case_dict = readYaml.read_yaml_data(pre_case_yaml)
         pre_test_info = pre_case_dict['test_info']
         pre_case_data = pre_case_dict['test_case'][0]
         # 判断前置接口是否也存在前置接口
