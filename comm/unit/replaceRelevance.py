@@ -74,7 +74,6 @@ def replace_relevance(param, relevance=None):
 				else:
 					if isinstance(relevance[each], list):
 						value = relevance[each][0]
-						each = each.replace('[', '\[').replace(']', '\]')
 					else:
 						value = relevance[each]
 
