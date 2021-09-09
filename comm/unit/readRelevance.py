@@ -6,7 +6,8 @@
 import logging
 import re
 
-__relevance = ""
+# __relevance = ""
+__relevance = []
 
 
 def get_value(data, value):
@@ -18,16 +19,23 @@ def get_value(data, value):
     """
     global __relevance
     if isinstance(data, dict):
-        if value in data:
-            __relevance = data[value]
-        else:
-            for key in data:
-                __relevance = get_value(data[key], value)
+        # if value in data:
+        #     __relevance = data[value]
+        # else:
+        #     for key in data:
+        #         __relevance = get_value(data[key], value)
+        for key in data:
+            if isinstance(data[key], dict) or isinstance(data[key], list):
+                get_value(data[key], value)
+            else:
+                if key == value:
+                    __relevance.append(data[key])
     elif isinstance(data, list):
         for key in data:
             if isinstance(key, dict):
-                __relevance = get_value(key, value)
-                break
+                # __relevance = get_value(key, value)
+                # break
+                get_value(key, value)
     return __relevance
 
 
@@ -39,10 +47,20 @@ def get_relevance(data, relevance_list, relevance=None):
     :param relevance:
     :return:
     """
+    global __relevance
     # 获取关联键列表
     relevance_list = re.findall(r"\${(.*?)}", str(relevance_list))
+
+    # 去除参数[n]标识
+    for index, value in enumerate(relevance_list):
+        mark = re.findall(r"\[\-?[0-9]*\]",  value)
+        if mark:
+            relevance_list[index] = value.strip(mark[0])
+
+    # 去除重复参数
     relevance_list = list(set(relevance_list))
     logging.debug("获取关联键列表:\n%s" % relevance_list)
+
     # 判断关联键和源数据是否有值
     if (not data) or (not relevance_list):
         return relevance
@@ -50,26 +68,29 @@ def get_relevance(data, relevance_list, relevance=None):
     # 判断是否存在其他关联键对象
     if not relevance:
         relevance = dict()
+
     # 遍历关联键
     for each in relevance_list:
-        if each in relevance:
-            pass
-            # # 考虑到一个关联键，多个值
-            # if isinstance(relevance[each], list):
-            #     a = relevance[each]
-            #     a.append(relevance_value)
-            #     relevance[each] = a
-            # else:
-            #     a = relevance[each]
-            #     b = list()
-            #     b.append(a)
-            #     b.append(relevance_value)
-            #     relevance[each] = b
-        else:
-            # 从结果中提取关联键的值
-            relevance[each] = get_value(data, each)
+        # 只考虑一个关联键一个值
+        # if each in relevance:
+        #     pass
+        # else:
+        #     # 从结果中提取关联键的值
+        #     relevance[each] = get_value(data, each)
+
+        # 考虑到一个关联键多个值
+        relevance_value = get_value(data, each)
+        if relevance_value:
+            if each in relevance:
+                tmp = relevance[each]
+                if isinstance(tmp, list):
+                    tmp += relevance_value
+                    relevance[each] = tmp
+                else:
+                    tmp2 = relevance_value.insert(0, tmp)
+                    relevance[each] = tmp2
+            else:
+                relevance[each] = relevance_value
+        __relevance = []
     logging.debug("提取关联键对象:\n%s" % relevance)
     return relevance
-
-
-

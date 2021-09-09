@@ -44,7 +44,15 @@ def replace_relevance(param, relevance=None):
 	else:
 		for each in result:
 			try:
-				# 关联参数多值替换
+				# 关联值只考虑一个值
+				# value = relevance[each]
+				# pattern = re.compile(r'\${' + each + '}')
+				# try:
+				# 	param = re.sub(pattern, value, param)
+				# except TypeError:
+				# 	param = value
+
+				# 关联参数多值时一一对应替换
 				# relevance_index = 0
 				# if isinstance(relevance[each], list):
 				# 	try:
@@ -54,8 +62,23 @@ def replace_relevance(param, relevance=None):
 				# 		relevance_index = 0
 				# 		param = re.sub(pattern, relevance[each][relevance_index], param, count=1)
 				# 		relevance_index += 1
-				value = relevance[each]
-				pattern = re.compile(r'\${' + each + '}')
+
+				# 关联参数多值时指定索引值替换
+				mark = re.findall(r"\[\-?[0-9]*\]", each)
+				# 判断关联参数是否指定索引值var[n]
+				if mark:
+					var = each.strip(mark[0])
+					n = int(mark[0].strip('[').strip(']'))
+					value = relevance[var][n]
+					each = each.replace('[', '\[').replace(']', '\]')
+				else:
+					if isinstance(relevance[each], list):
+						value = relevance[each][0]
+					else:
+						value = relevance[each]
+
+				# 生成正在表达式并替换关联参数
+				pattern = re.compile('\${' + each + '}')
 				try:
 					param = re.sub(pattern, value, param)
 				except TypeError:
@@ -193,3 +216,4 @@ if __name__ == '__main__':
 	print('生成一个18岁伪身份证：', replace("$GenNoid(y-18)"))
 	print('生成下个月今天的日期：', replace("$GenDate(m+1)"))
 	print('生成昨天此时的时间：', replace("$GenDatetime(d-1)"))
+	print('通过索引指定关联值：', replace('${name[-1]}', {'name': ['test1', 'test2']}))
