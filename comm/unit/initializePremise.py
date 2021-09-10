@@ -121,8 +121,9 @@ def init_premise(test_info, case_data, case_path):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
-        parameter['data'] = data
-        __relevance = readRelevance.get_relevance(parameter, expected_rs, __relevance)
+        msg_body = parameter.copy()
+        msg_body['pre_response'] = data
+        __relevance = readRelevance.get_relevance(msg_body, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))

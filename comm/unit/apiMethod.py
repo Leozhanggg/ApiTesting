@@ -11,7 +11,7 @@ import requests
 import simplejson
 from requests_toolbelt import MultipartEncoder
 from comm.utils.readYaml import write_yaml_file, read_yaml_data
-from config import API_CONFIG, PROJECT_NAME
+from config import API_CONFIG, PROJECT_NAME, PAGE_DIR
 
 
 def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies=None):
@@ -32,7 +32,11 @@ def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies
             value = files[key]
             # 判定参数值是否为文件，如果是则替换为二进制值
             if '/' in value:
-                files[key] = (os.path.basename(value), open(value, 'rb'))
+                if ':' in value:
+                    file_path = value
+                else:
+                    file_path = PAGE_DIR + value
+                files[key] = (os.path.basename(file_path), open(file_path, 'rb'))
         enc = MultipartEncoder(
             fields=files,
             boundary='--------------' + str(random.randint(1e28, 1e29-1))
