@@ -1,0 +1,201 @@
+{
+  "uid" : "92acb36d303775bc",
+  "name" : "test_appsDELETE[case_data0]",
+  "fullName" : "masterlink.testcase.bladesystem.test_appsDELETE.TestBladesystem#test_appsDELETE",
+  "historyId" : "9a5ca20189ed17b63beaca408fb0b378",
+  "time" : {
+    "start" : 1631438782213,
+    "stop" : 1631438785154,
+    "duration" : 2941
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "GET请求接口",
+      "time" : {
+        "start" : 1631438782229,
+        "stop" : 1631438782233,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "ab4d85a73a55a22a",
+        "name" : "请求接口",
+        "source" : "ab4d85a73a55a22a.attach",
+        "type" : "text/plain",
+        "size" : 7
+      }, {
+        "uid" : "89223470ef1d5574",
+        "name" : "请求地址",
+        "source" : "89223470ef1d5574.attach",
+        "type" : "text/plain",
+        "size" : 64
+      }, {
+        "uid" : "130502dd3147cdd2",
+        "name" : "请求头",
+        "source" : "130502dd3147cdd2.attach",
+        "type" : "text/plain",
+        "size" : 883
+      }, {
+        "uid" : "89d2ec15e55330a2",
+        "name" : "请求参数",
+        "source" : "89d2ec15e55330a2.attach",
+        "type" : "text/plain",
+        "size" : 57
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "DELETE请求接口",
+      "time" : {
+        "start" : 1631438783474,
+        "stop" : 1631438783481,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "b22611925eca2875",
+        "name" : "请求接口",
+        "source" : "b22611925eca2875.attach",
+        "type" : "text/plain",
+        "size" : 10
+      }, {
+        "uid" : "46759d81c5c474",
+        "name" : "请求地址",
+        "source" : "46759d81c5c474.attach",
+        "type" : "text/plain",
+        "size" : 56
+      }, {
+        "uid" : "b3ab6fc232827fea",
+        "name" : "请求头",
+        "source" : "b3ab6fc232827fea.attach",
+        "type" : "text/plain",
+        "size" : 883
+      }, {
+        "uid" : "e976cae3aa13709e",
+        "name" : "请求参数",
+        "source" : "e976cae3aa13709e.attach",
+        "type" : "text/plain",
+        "size" : 55
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "JSON格式校验接口",
+      "time" : {
+        "start" : 1631438785150,
+        "stop" : 1631438785154,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "4def0fb8d5dfeff1",
+        "name" : "实际code",
+        "source" : "4def0fb8d5dfeff1.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "ba32dafced846746",
+        "name" : "期望code",
+        "source" : "ba32dafced846746.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "14fb6e467cd26f3c",
+        "name" : "实际data",
+        "source" : "14fb6e467cd26f3c.attach",
+        "type" : "text/plain",
+        "size" : 75
+      }, {
+        "uid" : "68ac9d86b7da7767",
+        "name" : "期望data",
+        "source" : "68ac9d86b7da7767.attach",
+        "type" : "text/plain",
+        "size" : 75
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "d10874fd0be4cead",
+      "name" : "log",
+      "source" : "d10874fd0be4cead.txt",
+      "type" : "text/plain",
+      "size" : 12951
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 13,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 3
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "bladesystem"
+  }, {
+    "name" : "story",
+    "value" : "test_appsDELETE"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=5)"
+  }, {
+    "name" : "parentSuite",
+    "value" : "masterlink.testcase.bladesystem"
+  }, {
+    "name" : "suite",
+    "value" : "test_appsDELETE"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestBladesystem"
+  }, {
+    "name" : "host",
+    "value" : "cnwx-wenruo"
+  }, {
+    "name" : "thread",
+    "value" : "12796-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "masterlink.testcase.bladesystem.test_appsDELETE"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'summary': 'appsDELETE', 'describe': 'test_appsDELETE', 'parameter': {'appCodeList': ['coproduction'], 'tenantId': '${tenantId}'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "run(order=5)" ]
+  },
+  "source" : "92acb36d303775bc.json",
+  "parameterValues" : [ "{'summary': 'appsDELETE', 'describe': 'test_appsDELETE', 'parameter': {'appCodeList': ['coproduction'], 'tenantId': '${tenantId}'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+}

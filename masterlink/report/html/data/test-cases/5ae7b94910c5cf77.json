@@ -1,0 +1,162 @@
+{
+  "uid" : "5ae7b94910c5cf77",
+  "name" : "test_tokenPOST[case_data1]",
+  "fullName" : "masterlink.testcase.oauth.test_tokenPOST.TestOauth#test_tokenPOST",
+  "historyId" : "839ac3a61864c9ccd44761ca3081e0c8",
+  "time" : {
+    "start" : 1631438775119,
+    "stop" : 1631438776390,
+    "duration" : 1271
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1631438775122,
+        "stop" : 1631438775124,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e783fc1ee7ec69c6",
+        "name" : "请求接口",
+        "source" : "e783fc1ee7ec69c6.attach",
+        "type" : "text/plain",
+        "size" : 10
+      }, {
+        "uid" : "a845e38565f59a7c",
+        "name" : "请求地址",
+        "source" : "a845e38565f59a7c.attach",
+        "type" : "text/plain",
+        "size" : 61
+      }, {
+        "uid" : "b9f551d6dafdbdbd",
+        "name" : "请求头",
+        "source" : "b9f551d6dafdbdbd.attach",
+        "type" : "text/plain",
+        "size" : 127
+      }, {
+        "uid" : "c464ed7eb9992b40",
+        "name" : "请求参数",
+        "source" : "c464ed7eb9992b40.attach",
+        "type" : "text/plain",
+        "size" : 135
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "JSON格式校验接口",
+      "time" : {
+        "start" : 1631438776384,
+        "stop" : 1631438776390,
+        "duration" : 6
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "3aea0a548b4c5aec",
+        "name" : "实际code",
+        "source" : "3aea0a548b4c5aec.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "dd95e5dbfbc1a118",
+        "name" : "期望code",
+        "source" : "dd95e5dbfbc1a118.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "e0c6f04c26966703",
+        "name" : "实际data",
+        "source" : "e0c6f04c26966703.attach",
+        "type" : "text/plain",
+        "size" : 89
+      }, {
+        "uid" : "fbaf8a1e24da4702",
+        "name" : "期望data",
+        "source" : "fbaf8a1e24da4702.attach",
+        "type" : "text/plain",
+        "size" : 54
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "d05c5cf358b59c82",
+      "name" : "log",
+      "source" : "d05c5cf358b59c82.txt",
+      "type" : "text/plain",
+      "size" : 2265
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 9,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_tokenPOST"
+  }, {
+    "name" : "feature",
+    "value" : "oauth"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=1)"
+  }, {
+    "name" : "parentSuite",
+    "value" : "masterlink.testcase.oauth"
+  }, {
+    "name" : "suite",
+    "value" : "test_tokenPOST"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestOauth"
+  }, {
+    "name" : "host",
+    "value" : "cnwx-wenruo"
+  }, {
+    "name" : "thread",
+    "value" : "12796-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "masterlink.testcase.oauth.test_tokenPOST"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'summary': 'tokenPOST2', 'describe': 'tokenPOST2', 'parameter': {'tenantId': '000000', 'username': 'admin11111', 'password': 'admin11111', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'success': False, 'code': 'unauthorized', 'data': ''}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "run(order=1)" ]
+  },
+  "source" : "5ae7b94910c5cf77.json",
+  "parameterValues" : [ "{'summary': 'tokenPOST2', 'describe': 'tokenPOST2', 'parameter': {'tenantId': '000000', 'username': 'admin11111', 'password': 'admin11111', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'success': False, 'code': 'unauthorized', 'data': ''}}}" ]
+}

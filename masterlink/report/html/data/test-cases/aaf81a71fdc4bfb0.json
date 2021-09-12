@@ -1,0 +1,201 @@
+{
+  "uid" : "aaf81a71fdc4bfb0",
+  "name" : "test_appsPOST[case_data0]",
+  "fullName" : "masterlink.testcase.bladesystem.test_appsPOST.TestBladesystem#test_appsPOST",
+  "historyId" : "69b7d8764bcd6bca04f08245295085f2",
+  "time" : {
+    "start" : 1631438779663,
+    "stop" : 1631438782204,
+    "duration" : 2541
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "GET请求接口",
+      "time" : {
+        "start" : 1631438779675,
+        "stop" : 1631438779678,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "1ca186d5637dec4f",
+        "name" : "请求接口",
+        "source" : "1ca186d5637dec4f.attach",
+        "type" : "text/plain",
+        "size" : 7
+      }, {
+        "uid" : "7e47f294d1992d05",
+        "name" : "请求地址",
+        "source" : "7e47f294d1992d05.attach",
+        "type" : "text/plain",
+        "size" : 64
+      }, {
+        "uid" : "b40e207f0585fc96",
+        "name" : "请求头",
+        "source" : "b40e207f0585fc96.attach",
+        "type" : "text/plain",
+        "size" : 883
+      }, {
+        "uid" : "204186ce4b1ac6a9",
+        "name" : "请求参数",
+        "source" : "204186ce4b1ac6a9.attach",
+        "type" : "text/plain",
+        "size" : 57
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1631438780925,
+        "stop" : 1631438780933,
+        "duration" : 8
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "793ec0baa945e2e",
+        "name" : "请求接口",
+        "source" : "793ec0baa945e2e.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "d4787db0241bd550",
+        "name" : "请求地址",
+        "source" : "d4787db0241bd550.attach",
+        "type" : "text/plain",
+        "size" : 56
+      }, {
+        "uid" : "32689856779a3fdf",
+        "name" : "请求头",
+        "source" : "32689856779a3fdf.attach",
+        "type" : "text/plain",
+        "size" : 883
+      }, {
+        "uid" : "98e5fdc6fb4e146a",
+        "name" : "请求参数",
+        "source" : "98e5fdc6fb4e146a.attach",
+        "type" : "text/plain",
+        "size" : 137
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "JSON格式校验接口",
+      "time" : {
+        "start" : 1631438782198,
+        "stop" : 1631438782203,
+        "duration" : 5
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "c1018e2d24e8093",
+        "name" : "实际code",
+        "source" : "c1018e2d24e8093.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "49dcd67318a21b85",
+        "name" : "期望code",
+        "source" : "49dcd67318a21b85.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "9132c5fa38dec2cf",
+        "name" : "实际data",
+        "source" : "9132c5fa38dec2cf.attach",
+        "type" : "text/plain",
+        "size" : 75
+      }, {
+        "uid" : "bfd8db7fa9eec092",
+        "name" : "期望data",
+        "source" : "bfd8db7fa9eec092.attach",
+        "type" : "text/plain",
+        "size" : 75
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "855883920ae548c",
+      "name" : "log",
+      "source" : "855883920ae548c.txt",
+      "type" : "text/plain",
+      "size" : 13184
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 13,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 3
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_appsPOST"
+  }, {
+    "name" : "feature",
+    "value" : "bladesystem"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=4)"
+  }, {
+    "name" : "parentSuite",
+    "value" : "masterlink.testcase.bladesystem"
+  }, {
+    "name" : "suite",
+    "value" : "test_appsPOST"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestBladesystem"
+  }, {
+    "name" : "host",
+    "value" : "cnwx-wenruo"
+  }, {
+    "name" : "thread",
+    "value" : "12796-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "masterlink.testcase.bladesystem.test_appsPOST"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'summary': 'appsPOST', 'describe': 'test_appsPOST', 'parameter': {'tenantId': '${tenantId}', 'appCode': 'coproduction', 'expireTime': '$GenDatetime(d+1)', 'appAvatar': '', 'appDisplayName': 'coproduction'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "run(order=4)" ]
+  },
+  "source" : "aaf81a71fdc4bfb0.json",
+  "parameterValues" : [ "{'summary': 'appsPOST', 'describe': 'test_appsPOST', 'parameter': {'tenantId': '${tenantId}', 'appCode': 'coproduction', 'expireTime': '$GenDatetime(d+1)', 'appAvatar': '', 'appDisplayName': 'coproduction'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+}

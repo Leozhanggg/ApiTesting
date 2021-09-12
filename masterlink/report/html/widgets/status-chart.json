@@ -1,0 +1,71 @@
+[ {
+  "uid" : "b8c328d7b5a9a12d",
+  "name" : "test_tokenPOST[case_data0]",
+  "time" : {
+    "start" : 1631438773122,
+    "stop" : 1631438775113,
+    "duration" : 1991
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "92acb36d303775bc",
+  "name" : "test_appsDELETE[case_data0]",
+  "time" : {
+    "start" : 1631438782213,
+    "stop" : 1631438785154,
+    "duration" : 2941
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "25dfef13eae06e77",
+  "name" : "test_tenantsPOST[case_data0]",
+  "time" : {
+    "start" : 1631438776403,
+    "stop" : 1631438778321,
+    "duration" : 1918
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b4a9f0ae31c0e4f7",
+  "name" : "test_tenantsDELETE[case_data0]",
+  "time" : {
+    "start" : 1631438785161,
+    "stop" : 1631438787782,
+    "duration" : 2621
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5ae7b94910c5cf77",
+  "name" : "test_tokenPOST[case_data1]",
+  "time" : {
+    "start" : 1631438775119,
+    "stop" : 1631438776390,
+    "duration" : 1271
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aaf81a71fdc4bfb0",
+  "name" : "test_appsPOST[case_data0]",
+  "time" : {
+    "start" : 1631438779663,
+    "stop" : 1631438782204,
+    "duration" : 2541
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8853ebc993aaf991",
+  "name" : "test_pageGET[case_data0]",
+  "time" : {
+    "start" : 1631438778334,
+    "stop" : 1631438779656,
+    "duration" : 1322
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

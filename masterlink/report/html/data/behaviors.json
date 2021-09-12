@@ -1,0 +1,132 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "oauth",
+    "children" : [ {
+      "name" : "test_tokenPOST",
+      "children" : [ {
+        "name" : "test_tokenPOST[case_data0]",
+        "uid" : "b8c328d7b5a9a12d",
+        "parentUid" : "746b8f6b12a62a19d931fc301f0a2a09",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438773122,
+          "stop" : 1631438775113,
+          "duration" : 1991
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'tokenPOST', 'describe': 'test_tokenPOST', 'parameter': {'tenantId': '000000', 'username': 'admin', 'password': 'admin', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'tenant_id': '000000', 'user_name': 'admin'}}}" ]
+      }, {
+        "name" : "test_tokenPOST[case_data1]",
+        "uid" : "5ae7b94910c5cf77",
+        "parentUid" : "746b8f6b12a62a19d931fc301f0a2a09",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438775119,
+          "stop" : 1631438776390,
+          "duration" : 1271
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'tokenPOST2', 'describe': 'tokenPOST2', 'parameter': {'tenantId': '000000', 'username': 'admin11111', 'password': 'admin11111', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'success': False, 'code': 'unauthorized', 'data': ''}}}" ]
+      } ],
+      "uid" : "746b8f6b12a62a19d931fc301f0a2a09"
+    } ],
+    "uid" : "fd7fee28e54db8d6b1149d491b83a9e2"
+  }, {
+    "name" : "bladesystem",
+    "children" : [ {
+      "name" : "test_tenantsPOST",
+      "children" : [ {
+        "name" : "test_tenantsPOST[case_data0]",
+        "uid" : "25dfef13eae06e77",
+        "parentUid" : "15fd6d220f71415583206043f19917d8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438776403,
+          "stop" : 1631438778321,
+          "duration" : 1918
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'tenantsPOST', 'describe': 'test_tenantsPOST', 'parameter': {'tenantCode': '$RandStr(10)', 'tenantName': 'interface', 'linkman': '171', 'contactNumber': '18651889171', 'classes': '2'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'msg': '操作成功'}}}" ]
+      } ],
+      "uid" : "15fd6d220f71415583206043f19917d8"
+    }, {
+      "name" : "test_appsPOST",
+      "children" : [ {
+        "name" : "test_appsPOST[case_data0]",
+        "uid" : "aaf81a71fdc4bfb0",
+        "parentUid" : "10b8d6219fc41775be47691b853f24ad",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438779663,
+          "stop" : 1631438782204,
+          "duration" : 2541
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'appsPOST', 'describe': 'test_appsPOST', 'parameter': {'tenantId': '${tenantId}', 'appCode': 'coproduction', 'expireTime': '$GenDatetime(d+1)', 'appAvatar': '', 'appDisplayName': 'coproduction'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+      } ],
+      "uid" : "10b8d6219fc41775be47691b853f24ad"
+    }, {
+      "name" : "test_appsDELETE",
+      "children" : [ {
+        "name" : "test_appsDELETE[case_data0]",
+        "uid" : "92acb36d303775bc",
+        "parentUid" : "3c85b767fd4632caeb0ddd36b45290e3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438782213,
+          "stop" : 1631438785154,
+          "duration" : 2941
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'appsDELETE', 'describe': 'test_appsDELETE', 'parameter': {'appCodeList': ['coproduction'], 'tenantId': '${tenantId}'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+      } ],
+      "uid" : "3c85b767fd4632caeb0ddd36b45290e3"
+    } ],
+    "uid" : "5b95ca79f023f683513fe111f517b88a"
+  }, {
+    "name" : "tenants",
+    "children" : [ {
+      "name" : "test_pageGET",
+      "children" : [ {
+        "name" : "test_pageGET[case_data0]",
+        "uid" : "8853ebc993aaf991",
+        "parentUid" : "67b6f38a4eaee994dca2894ae51947a2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438778334,
+          "stop" : 1631438779656,
+          "duration" : 1322
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'pageGET', 'describe': 'test_pageGET', 'parameter': {'tenantName': 'interface', 'current': '1', 'size': '30'}, 'check_body': {'check_type': 'check_code', 'expected_code': 200, 'expected_result': 'pageGET_response.json'}}" ]
+      } ],
+      "uid" : "67b6f38a4eaee994dca2894ae51947a2"
+    }, {
+      "name" : "test_tenantsDELETE",
+      "children" : [ {
+        "name" : "test_tenantsDELETE[case_data0]",
+        "uid" : "b4a9f0ae31c0e4f7",
+        "parentUid" : "7eaa3d7de8a96ca439ed9d0e6ff9f448",
+        "status" : "passed",
+        "time" : {
+          "start" : 1631438785161,
+          "stop" : 1631438787782,
+          "duration" : 2621
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'summary': 'tenantsDELETE', 'describe': 'test_tenantsDELETE', 'parameter': None, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': None, 'msg': '操作成功'}}}" ]
+      } ],
+      "uid" : "7eaa3d7de8a96ca439ed9d0e6ff9f448"
+    } ],
+    "uid" : "7af0a41ceb381d1c2e8a5ea4263507b1"
+  } ]
+}

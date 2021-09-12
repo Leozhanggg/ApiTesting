@@ -22,8 +22,8 @@ def write_case_yaml(har_path):
     logging.info("读取抓包文件主目录: {}".format(har_path))
     har_list = os.listdir(har_path)
     for each in har_list:
-        ext_name = os.path.splitext(each)[1]
-        if ext_name == '.chlsj':
+        file_name, ext_type = os.path.splitext(each)
+        if ext_type == '.chlsj':
 
             logging.info("读取抓包文件: {}".format(each))
             file_path = har_path+'/'+each
@@ -37,15 +37,6 @@ def write_case_yaml(har_path):
                 method = har_ct["method"]
                 path = har_ct["path"]
                 headers = har_ct["request"]["header"]['headers']
-                title = path.split("/")[-1].replace('-', '')
-                module = path.split("/")[-2].replace('-', '')
-
-                # 创建模块目录
-                module_path = har_path.split('data')[0] + '/page/' + module
-                try:
-                    os.makedirs(module_path)
-                except:
-                    pass
 
                 # 定义api通过配置
                 api_config = dict()
@@ -82,31 +73,24 @@ def write_case_yaml(har_path):
                     nconfig[PROJECT_NAME] = api_config
                     write_yaml_file(API_CONFIG, nconfig)
 
-                # 定义测试信息
-                test_info = dict()
-                test_info["title"] = module
-                test_info["host"] = '${host}'
-                test_info["scheme"] = '${scheme}'      # har_ct["scheme"]
-                test_info["method"] = method
-                test_info["address"] = path
-                test_info["mime_type"] = har_ct["request"]["mimeType"]
-                test_info["headers"] = '${headers}'
-                test_info["timeout"] = 10
-                test_info["file"] = False
-                test_info["cookies"] = False
-                test_info["premise"] = False
-
                 # 解析请求报文
                 parameter = dict()
                 try:
-                    if method in 'POST':
+                    title = file_name
+                    urlend = path.split("/")[-1].replace('-', '')
+                    module = path.split("/")[-2].replace('-', '')
+                    # title = urlend + method
+                    if har_ct["query"]:
+                        parameter_list = har_ct["query"]
+                    elif urlend.isdigit():
+                        parameter_list = None
+                        # title = module + method
+                    elif method in 'POST':
                         parameter_list = urllib.parse.unquote(har_ct["request"]["body"]["text"])
-                    elif method in 'PUT':
-                        parameter_list = har_ct["request"]["body"]["text"]
                     elif method in 'DELETE':
                         parameter_list = urllib.parse.unquote(har_ct["request"]["body"]["text"])
                     else:
-                        parameter_list = har_ct["query"]
+                        parameter_list = har_ct["request"]["body"]["text"]
 
                     if parameter_list:
                         if "&" in parameter_list:
@@ -122,11 +106,32 @@ def write_case_yaml(har_path):
                     logging.error("未找到parameter: %s" % e)
                     raise e
 
+                # 定义测试信息
+                test_info = dict()
+                test_info["title"] = module
+                test_info["host"] = '${host}'
+                test_info["scheme"] = '${scheme}'
+                test_info["method"] = method
+                test_info["address"] = path
+                test_info["mime_type"] = har_ct["request"]["mimeType"]
+                test_info["headers"] = '${headers}'
+                test_info["timeout"] = 10
+                test_info["file"] = False
+                test_info["cookies"] = False
+                test_info["premise"] = False
+
                 # 定义用例信息
                 test_case_list = list()
                 test_case = dict()
                 test_case["summary"] = title
                 test_case["describe"] = 'test_'+title
+
+                # 创建模块目录
+                module_path = har_path.split('data')[0] + '/page/' + module
+                try:
+                    os.makedirs(module_path)
+                except:
+                    pass
 
                 # 定义请求入参信息，且当参数字符总长度大于200时单独写入json文件
                 if len(str(parameter)) > 200:

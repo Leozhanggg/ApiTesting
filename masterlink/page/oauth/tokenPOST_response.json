@@ -1,0 +1,27 @@
+[
+    {
+        "summary": "tokenPOST",
+        "body": {
+            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzMTQyMDEzMiwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiI0Y2FkY2QyMS02NmU1LTRiMjQtODgyZS1jMzgzMGVkNDI1YmMiLCJhY2NvdW50IjoiYWRtaW4ifQ.G1LFNplgJueiUdJFQVxl4qQZ3hatf3EM0anUcQr_vbU",
+            "token_type": "bearer",
+            "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJhdGkiOiI0Y2FkY2QyMS02NmU1LTRiMjQtODgyZS1jMzgzMGVkNDI1YmMiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzNjg2MzMzMiwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiI5ZTg3OTVlOS0yNDVjLTRkOWYtOWJkYy02MmRjYzA4OTA2NGEiLCJhY2NvdW50IjoiYWRtaW4ifQ.ZJhzr8C20cbfqD14rQf-Szp3HPeHpJROsB34LIYVuwo",
+            "expires_in": 604799,
+            "scope": "all",
+            "tenant_id": "000000",
+            "user_name": "admin",
+            "real_name": "管理员",
+            "avatar": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+            "client_id": "saber",
+            "role_name": "administrator",
+            "license": "powered by bladex",
+            "post_id": "1123598817738675201",
+            "user_id": "1123598821738675201",
+            "role_id": "1123598816738675201",
+            "nick_name": "管理员",
+            "oauth_id": "",
+            "dept_id": "1123598813738675201",
+            "account": "admin",
+            "jti": "4cadcd21-66e5-4b24-882e-c3830ed425bc"
+        }
+    }
+]

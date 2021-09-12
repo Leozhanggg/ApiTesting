@@ -1,0 +1,189 @@
+[
+	{
+		"status": "COMPLETE",
+		"method": "DELETE",
+		"protocolVersion": "HTTP/1.1",
+		"scheme": "https",
+		"host": "alpha.masterlink.cloud",
+		"port": null,
+		"actualPort": 443,
+		"path": "/api/blade-system/tenants/684337873663954944",
+		"query": null,
+		"tunnel": false,
+		"keptAlive": true,
+		"webSocket": false,
+		"remoteAddress": "alpha.masterlink.cloud/121.36.242.21",
+		"clientAddress": "/127.0.0.1",
+		"clientPort": 50246,
+		"times": {
+			"start": "2021-09-11T11:06:49.955+08:00",
+			"requestBegin": "2021-09-11T11:06:49.956+08:00",
+			"requestComplete": "2021-09-11T11:06:49.956+08:00",
+			"responseBegin": "2021-09-11T11:06:50.053+08:00",
+			"end": "2021-09-11T11:06:50.054+08:00"
+		},
+		"durations": {
+			"total": 98,
+			"dns": null,
+			"connect": null,
+			"ssl": null,
+			"request": 0,
+			"response": 1,
+			"latency": 97
+		},
+		"speeds": {
+			"overall": "45612",
+			"request": "0",
+			"response": "69000"
+		},
+		"totalSize": "4470",
+		"ssl": {
+			"protocol": "TLSv1.2",
+			"cipherSuite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+		},
+		"alpn": {
+			"protocol": "http/1.1"
+		},
+		"request": {
+			"sizes": {
+				"headers": 4401,
+				"body": 0
+			},
+			"mimeType": null,
+			"charset": null,
+			"contentEncoding": null,
+			"header": {
+				"firstLine": "DELETE /api/blade-system/tenants/684337873663954944 HTTP/1.1",
+				"headers": [
+					{
+						"name": "Host",
+						"value": "alpha.masterlink.cloud"
+					},
+					{
+						"name": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"name": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\", \"Google Chrome\";v=\"90\""
+					},
+					{
+						"name": "Accept",
+						"value": "*/*"
+					},
+					{
+						"name": "Authorization",
+						"value": "Basic c2FiZXI6c2FiZXJfc2VjcmV0"
+					},
+					{
+						"name": "Blade-Auth",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzMTkzMzA0NCwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiIxNDMyNTY2MS00NDdlLTQ5MmQtODQ3Yi1lZjdlMjIzNzhmYTIiLCJhY2NvdW50IjoiYWRtaW4ifQ.m850S0UTZE1JV26xE2UmwUmeFMQ4wAzhKHqITo7N-3o"
+					},
+					{
+						"name": "Accept-Language",
+						"value": "zh_CN"
+					},
+					{
+						"name": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"name": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+					},
+					{
+						"name": "Origin",
+						"value": "https://alpha.masterlink.cloud"
+					},
+					{
+						"name": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"name": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"name": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"name": "Referer",
+						"value": "https://alpha.masterlink.cloud/platform/tenant"
+					},
+					{
+						"name": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"name": "Cookie",
+						"value": "loginTime=1631328245626; USER_INFO={\"access_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzMTkzMzA0NCwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiIxNDMyNTY2MS00NDdlLTQ5MmQtODQ3Yi1lZjdlMjIzNzhmYTIiLCJhY2NvdW50IjoiYWRtaW4ifQ.m850S0UTZE1JV26xE2UmwUmeFMQ4wAzhKHqITo7N-3o\",\"token_type\":\"bearer\",\"refresh_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJhdGkiOiIxNDMyNTY2MS00NDdlLTQ5MmQtODQ3Yi1lZjdlMjIzNzhmYTIiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzNzM3NjI0NCwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiJkMTI5OTM1NC1hZGVhLTQ5MDktYWQ5NC1lYjhjYTY5ZmVlYTEiLCJhY2NvdW50IjoiYWRtaW4ifQ.7ntNZ0g_oqO1Qg6ZJfIck2dmMXfjz6s3HK2_QxLs0wI\",\"expires_in\":604799,\"scope\":\"all\",\"tenant_id\":\"000000\",\"user_name\":\"admin\",\"real_name\":\"ç®¡çå\",\"avatar\":\"https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png\",\"client_id\":\"saber\",\"role_name\":\"administrator\",\"license\":\"powered by bladex\",\"post_id\":\"1123598817738675201\",\"user_id\":\"1123598821738675201\",\"role_id\":\"1123598816738675201\",\"nick_name\":\"ç®¡çå\",\"oauth_id\":\"\",\"dept_id\":\"1123598813738675201\",\"account\":\"admin\",\"jti\":\"14325661-447e-492d-847b-ef7e22378fa2\"}; ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL3Jtc3BvcnRhbC9CaWF6ZmFueG1hbU5Sb3h4VnhrYS5wbmciLCJhdXRob3JpdGllcyI6WyJhZG1pbmlzdHJhdG9yIl0sImNsaWVudF9pZCI6InNhYmVyIiwicm9sZV9uYW1lIjoiYWRtaW5pc3RyYXRvciIsImxpY2Vuc2UiOiJwb3dlcmVkIGJ5IGJsYWRleCIsInBvc3RfaWQiOiIxMTIzNTk4ODE3NzM4Njc1MjAxIiwidXNlcl9pZCI6IjExMjM1OTg4MjE3Mzg2NzUyMDEiLCJyb2xlX2lkIjoiMTEyMzU5ODgxNjczODY3NTIwMSIsInNjb3BlIjpbImFsbCJdLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJvYXV0aF9pZCI6IiIsImV4cCI6MTYzMTkzMzA0NCwiZGVwdF9pZCI6IjExMjM1OTg4MTM3Mzg2NzUyMDEiLCJqdGkiOiIxNDMyNTY2MS00NDdlLTQ5MmQtODQ3Yi1lZjdlMjIzNzhmYTIiLCJhY2NvdW50IjoiYWRtaW4ifQ.m850S0UTZE1JV26xE2UmwUmeFMQ4wAzhKHqITo7N-3o"
+					}
+				]
+			}
+		},
+		"response": {
+			"status": 200,
+			"sizes": {
+				"headers": 0,
+				"body": 69
+			},
+			"mimeType": "application/json",
+			"charset": "UTF-8",
+			"contentEncoding": null,
+			"header": {
+				"firstLine": "HTTP/1.1 200 OK",
+				"headers": [
+					{
+						"name": "Server",
+						"value": "nginx/1.17.5"
+					},
+					{
+						"name": "Date",
+						"value": "Sat, 11 Sep 2021 03:06:48 GMT"
+					},
+					{
+						"name": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"name": "Transfer-Encoding",
+						"value": "chunked"
+					},
+					{
+						"name": "Access-Control-Allow-Headers",
+						"value": "X-Requested-With, Tenant-Id, Blade-Auth, Content-Type, Authorization, credential, X-XSRF-TOKEN, token, username, client,Captcha-Code,Captcha-Key,Accept-Language,Account-Type,knfie4j-gateway-request, request-origion"
+					},
+					{
+						"name": "Access-Control-Allow-Methods",
+						"value": "GET,POST,PUT,DELETE,HEAD"
+					},
+					{
+						"name": "Access-Control-Allow-Origin",
+						"value": "*"
+					},
+					{
+						"name": "Access-Control-Expose-Headers",
+						"value": "*"
+					},
+					{
+						"name": "Access-Control-Max-Age",
+						"value": "18000L"
+					},
+					{
+						"name": "Access-Control-Allow-Credentials",
+						"value": "true"
+					},
+					{
+						"name": "Connection",
+						"value": "keep-alive"
+					}
+				]
+			},
+			"body": {
+				"text": "{\"code\":200,\"success\":true,\"data\":null,\"msg\":\"操作成功\"}",
+				"charset": "UTF-8"
+			}
+		}
+	}
+]

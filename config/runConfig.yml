@@ -1,8 +1,8 @@
 # 运行项目名
-project_name: PyDemo
+project_name: masterlink
 
 # 运行模式:
-auto_switch: 2
+auto_switch: 0
 # 0 -不开启自动生成测试用例功能，将直接运行测试
 # 1 -根据手工编写用例，自动生成测试脚本，然后运行测试
 # 2 -根据接口抓包数据，自动生成测试用例和测试脚本，然后运行测试

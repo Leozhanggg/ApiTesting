@@ -1,0 +1,29 @@
+test_info:
+  title: bladesystem
+  host: ${host}
+  scheme: ${scheme}
+  method: POST
+  address: /api/blade-system/tenants
+  mime_type: application/json
+  headers: ${headers}
+  timeout: 10
+  file: false
+  cookies: false
+  premise: false
+test_case:
+- summary: tenantsPOST
+  describe: test_tenantsPOST
+  parameter:
+    tenantCode: $RandStr(10)
+    tenantName: interface
+    linkman: '171'
+    contactNumber: '18651889171'
+    classes: '2'
+  check_body:
+    check_type: check_json
+    expected_code: 200
+    expected_result:
+      code: 200
+      success: true
+#      data: '1434377573277278210'
+      msg: 操作成功

@@ -1,0 +1,30 @@
+test_info:
+  title: bladesystem
+  host: ${host}
+  scheme: ${scheme}
+  method: POST
+  address: /api/blade-system/apps
+  mime_type: application/json
+  headers: ${headers}
+  timeout: 10
+  file: false
+  cookies: false
+  premise: /tenants/test_pageGET.yaml
+test_case:
+- summary: appsPOST
+  describe: test_appsPOST
+  parameter:
+    tenantId: '${tenantId}'
+    appCode: coproduction
+    expireTime: '$GenDatetime(d+1)'
+    appAvatar: ''
+    appDisplayName: coproduction
+  check_body:
+    check_type: check_json
+    expected_code: 200
+    expected_result:
+      code: 200
+      success: true
+      data: true
+      msg: ''
+      masterlink: true

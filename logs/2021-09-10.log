@@ -1,0 +1,4 @@
+2021-09-10 20:23:30,924 - startup.py - INFO: 根据接口抓包数据，自动生成测试用例和测试脚本，然后运行测试！
+2021-09-10 20:23:30,925 - writeCaseYml.py - INFO: 读取抓包文件主目录: D:/——GIT——/ApiTesting/masterlink/data
+2021-09-10 20:23:30,925 - writeCaseYml.py - INFO: 读取抓包文件: 01token.chlsj
+2021-09-10 20:23:30,959 - writeCaseYml.py - ERROR: 未找到parameter: 'body'

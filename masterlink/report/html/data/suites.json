@@ -1,0 +1,156 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "masterlink.testcase.oauth",
+    "children" : [ {
+      "name" : "test_tokenPOST",
+      "children" : [ {
+        "name" : "TestOauth",
+        "children" : [ {
+          "name" : "test_tokenPOST[case_data0]",
+          "uid" : "b8c328d7b5a9a12d",
+          "parentUid" : "e2db43564b3d8d7bf5b60409be7fc2e7",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438773122,
+            "stop" : 1631438775113,
+            "duration" : 1991
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'tokenPOST', 'describe': 'test_tokenPOST', 'parameter': {'tenantId': '000000', 'username': 'admin', 'password': 'admin', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'tenant_id': '000000', 'user_name': 'admin'}}}" ]
+        }, {
+          "name" : "test_tokenPOST[case_data1]",
+          "uid" : "5ae7b94910c5cf77",
+          "parentUid" : "e2db43564b3d8d7bf5b60409be7fc2e7",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438775119,
+            "stop" : 1631438776390,
+            "duration" : 1271
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'tokenPOST2', 'describe': 'tokenPOST2', 'parameter': {'tenantId': '000000', 'username': 'admin11111', 'password': 'admin11111', 'grant_type': 'password', 'scope': 'all', 'type': 'account'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'success': False, 'code': 'unauthorized', 'data': ''}}}" ]
+        } ],
+        "uid" : "e2db43564b3d8d7bf5b60409be7fc2e7"
+      } ],
+      "uid" : "d3c1bf621048542a9dc950f3d6f89181"
+    } ],
+    "uid" : "59e39d5bbf076f81b957f879a83a41a5"
+  }, {
+    "name" : "masterlink.testcase.bladesystem",
+    "children" : [ {
+      "name" : "test_tenantsPOST",
+      "children" : [ {
+        "name" : "TestBladesystem",
+        "children" : [ {
+          "name" : "test_tenantsPOST[case_data0]",
+          "uid" : "25dfef13eae06e77",
+          "parentUid" : "4ad0efffce6b4ee2da05d0ed651fc5ec",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438776403,
+            "stop" : 1631438778321,
+            "duration" : 1918
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'tenantsPOST', 'describe': 'test_tenantsPOST', 'parameter': {'tenantCode': '$RandStr(10)', 'tenantName': 'interface', 'linkman': '171', 'contactNumber': '18651889171', 'classes': '2'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'msg': '操作成功'}}}" ]
+        } ],
+        "uid" : "4ad0efffce6b4ee2da05d0ed651fc5ec"
+      } ],
+      "uid" : "6601ac14c96923323665a6452d1e5585"
+    }, {
+      "name" : "test_appsPOST",
+      "children" : [ {
+        "name" : "TestBladesystem",
+        "children" : [ {
+          "name" : "test_appsPOST[case_data0]",
+          "uid" : "aaf81a71fdc4bfb0",
+          "parentUid" : "5874994db1bcaabcba99296b0cfa7717",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438779663,
+            "stop" : 1631438782204,
+            "duration" : 2541
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'appsPOST', 'describe': 'test_appsPOST', 'parameter': {'tenantId': '${tenantId}', 'appCode': 'coproduction', 'expireTime': '$GenDatetime(d+1)', 'appAvatar': '', 'appDisplayName': 'coproduction'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+        } ],
+        "uid" : "5874994db1bcaabcba99296b0cfa7717"
+      } ],
+      "uid" : "14aadfd4811163496f0017d897c0bf19"
+    }, {
+      "name" : "test_appsDELETE",
+      "children" : [ {
+        "name" : "TestBladesystem",
+        "children" : [ {
+          "name" : "test_appsDELETE[case_data0]",
+          "uid" : "92acb36d303775bc",
+          "parentUid" : "92fb1fc0b81fe287d78fd619273e4ce6",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438782213,
+            "stop" : 1631438785154,
+            "duration" : 2941
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'appsDELETE', 'describe': 'test_appsDELETE', 'parameter': {'appCodeList': ['coproduction'], 'tenantId': '${tenantId}'}, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': True, 'msg': '', 'masterlink': True}}}" ]
+        } ],
+        "uid" : "92fb1fc0b81fe287d78fd619273e4ce6"
+      } ],
+      "uid" : "37db5af7ba1e79588c8be0344357dfde"
+    } ],
+    "uid" : "e7f90cf53db5d6227814f9cf2f69b6b2"
+  }, {
+    "name" : "masterlink.testcase.tenants",
+    "children" : [ {
+      "name" : "test_pageGET",
+      "children" : [ {
+        "name" : "TestTenants",
+        "children" : [ {
+          "name" : "test_pageGET[case_data0]",
+          "uid" : "8853ebc993aaf991",
+          "parentUid" : "feb91f10f9835717d1804cb9639dac00",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438778334,
+            "stop" : 1631438779656,
+            "duration" : 1322
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'pageGET', 'describe': 'test_pageGET', 'parameter': {'tenantName': 'interface', 'current': '1', 'size': '30'}, 'check_body': {'check_type': 'check_code', 'expected_code': 200, 'expected_result': 'pageGET_response.json'}}" ]
+        } ],
+        "uid" : "feb91f10f9835717d1804cb9639dac00"
+      } ],
+      "uid" : "6387946f87487c6ea1be96af9b00655a"
+    }, {
+      "name" : "test_tenantsDELETE",
+      "children" : [ {
+        "name" : "TestTenants",
+        "children" : [ {
+          "name" : "test_tenantsDELETE[case_data0]",
+          "uid" : "b4a9f0ae31c0e4f7",
+          "parentUid" : "43766431c378c5f810902d0f42197aed",
+          "status" : "passed",
+          "time" : {
+            "start" : 1631438785161,
+            "stop" : 1631438787782,
+            "duration" : 2621
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'summary': 'tenantsDELETE', 'describe': 'test_tenantsDELETE', 'parameter': None, 'check_body': {'check_type': 'check_json', 'expected_code': 200, 'expected_result': {'code': 200, 'success': True, 'data': None, 'msg': '操作成功'}}}" ]
+        } ],
+        "uid" : "43766431c378c5f810902d0f42197aed"
+      } ],
+      "uid" : "31aa0f0d65338d6bd3808a132f0efe3d"
+    } ],
+    "uid" : "430306612920c0495d4d1f25c0fe375b"
+  } ]
+}

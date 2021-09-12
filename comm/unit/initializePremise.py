@@ -21,7 +21,9 @@ def read_json(summary, json_obj, case_path):
     :param case_path: case路径
     :return:
     """
-    if isinstance(json_obj, dict):
+    if not json_obj:
+        return json_obj
+    elif isinstance(json_obj, dict):
         return json_obj
     else:
         try:
@@ -93,9 +95,7 @@ def init_premise(test_info, case_data, case_path):
     # 获取项目公共关联值
     aconfig = readYaml.read_yaml_data(API_CONFIG)
     __relevance = aconfig[PROJECT_NAME]
-    # 处理测试信息
-    test_info = replaceRelevance.replace(test_info, __relevance)
-    logging.debug("测试信息处理结果：{}".format(test_info))
+
     # 处理Cookies
     if test_info['cookies']:
         cookies = aconfig[PROJECT_NAME]['cookies']
@@ -112,6 +112,11 @@ def init_premise(test_info, case_data, case_path):
         else:
             data = prepare_case(pre_case_path_list, __relevance)
 
+        # 处理测试信息
+        __relevance = readRelevance.get_relevance(data, test_info, __relevance)
+        test_info = replaceRelevance.replace(test_info, __relevance)
+        logging.debug("测试信息处理结果：{}".format(test_info))
+
         # 处理当前接口入参：获取入参-获取关联值-替换关联值
         parameter = read_json(case_data['summary'], case_data['parameter'], case_path)
         __relevance = readRelevance.get_relevance(data, parameter, __relevance)
@@ -121,14 +126,22 @@ def init_premise(test_info, case_data, case_path):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
-        msg_body = parameter.copy()
-        msg_body['pre_response'] = data
+        # 判断是否存在请求参数
+        if parameter:
+            msg_body = parameter.copy()
+            msg_body['pre_response'] = data
+        else:
+            msg_body = data
         __relevance = readRelevance.get_relevance(msg_body, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
 
     else:
+        # 处理测试信息
+        test_info = replaceRelevance.replace(test_info, __relevance)
+        logging.debug("测试信息处理结果：{}".format(test_info))
+
         # 处理当前接口入参：获取入参-获取关联值-替换关联值
         parameter = read_json(case_data['summary'], case_data['parameter'], case_path)
         parameter = replaceRelevance.replace(parameter, __relevance)
@@ -141,5 +154,7 @@ def init_premise(test_info, case_data, case_path):
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
+
+
 
     return test_info, case_data

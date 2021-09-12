@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Thu Feb 04 16:39:26 CST 2021","Thu Feb 04 16:39:29 CST 2021","2078","PyDemo.testcase.register","test_addOrUpCurBact","TestRegister","","","test_addOrUpCurBact[case_data0]",""
-"passed","Thu Feb 04 16:39:30 CST 2021","Thu Feb 04 16:39:31 CST 2021","1038","PyDemo.testcase.register","test_getAdultCurbactList","TestRegister","","","test_getAdultCurbactList[case_data0]",""
-"passed","Thu Feb 04 16:39:29 CST 2021","Thu Feb 04 16:39:30 CST 2021","1013","PyDemo.testcase.register","test_findParam","TestRegister","","","test_findParam[case_data0]",""
-"passed","Thu Feb 04 16:39:31 CST 2021","Thu Feb 04 16:39:32 CST 2021","1071","PyDemo.testcase.register","test_initCanSelInfo","TestRegister","","","test_initCanSelInfo[case_data0]",""

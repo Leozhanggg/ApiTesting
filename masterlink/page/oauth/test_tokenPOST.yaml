@@ -1,0 +1,49 @@
+test_info:
+  title: oauth
+  host: ${host}
+  scheme: ${scheme}
+  method: POST
+  address: /api/blade-auth/oauth/token
+  mime_type: application/x-www-form-urlencoded
+  headers:
+    Authorization: Basic c2FiZXI6c2FiZXJfc2VjcmV0
+    Content-Type: application/x-www-form-urlencoded
+    Tenant-Id: '000000'
+  timeout: 10
+  file: false
+  cookies: false
+  premise: false
+test_case:
+- summary: tokenPOST
+  describe: test_tokenPOST
+  parameter:
+    tenantId: '000000'
+    username: admin
+    password: admin
+    grant_type: password
+    scope: all
+    type: account
+  check_body:
+    check_type: check_json
+    expected_code: 200
+    expected_result:
+      tenant_id: "000000"
+      user_name: "admin"
+#    expected_result: tokenPOST_response.json
+
+- summary: tokenPOST2
+  describe: tokenPOST2
+  parameter:
+    tenantId: '000000'
+    username: admin11111
+    password: admin11111
+    grant_type: password
+    scope: all
+    type: account
+  check_body:
+    check_type: check_json
+    expected_code: 200
+    expected_result:
+      success: false
+      code: 'unauthorized'
+      data: ''
