@@ -1,8 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sun Sep 12 17:26:13 CST 2021","Sun Sep 12 17:26:15 CST 2021","1991","masterlink.testcase.oauth","test_tokenPOST","TestOauth","","","test_tokenPOST[case_data0]",""
-"passed","Sun Sep 12 17:26:22 CST 2021","Sun Sep 12 17:26:25 CST 2021","2941","masterlink.testcase.bladesystem","test_appsDELETE","TestBladesystem","","","test_appsDELETE[case_data0]",""
-"passed","Sun Sep 12 17:26:16 CST 2021","Sun Sep 12 17:26:18 CST 2021","1918","masterlink.testcase.bladesystem","test_tenantsPOST","TestBladesystem","","","test_tenantsPOST[case_data0]",""
-"passed","Sun Sep 12 17:26:25 CST 2021","Sun Sep 12 17:26:27 CST 2021","2621","masterlink.testcase.tenants","test_tenantsDELETE","TestTenants","","","test_tenantsDELETE[case_data0]",""
-"passed","Sun Sep 12 17:26:15 CST 2021","Sun Sep 12 17:26:16 CST 2021","1271","masterlink.testcase.oauth","test_tokenPOST","TestOauth","","","test_tokenPOST[case_data1]",""
-"passed","Sun Sep 12 17:26:19 CST 2021","Sun Sep 12 17:26:22 CST 2021","2541","masterlink.testcase.bladesystem","test_appsPOST","TestBladesystem","","","test_appsPOST[case_data0]",""
-"passed","Sun Sep 12 17:26:18 CST 2021","Sun Sep 12 17:26:19 CST 2021","1322","masterlink.testcase.tenants","test_pageGET","TestTenants","","","test_pageGET[case_data0]",""

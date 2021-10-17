@@ -8,7 +8,6 @@ import allure
 import operator
 import logging
 from decimal import Decimal
-from comm.unit import readRelevance, replaceRelevance
 
 
 def check_json(src_data, dst_data):
@@ -144,7 +143,7 @@ def check_result(case_data, code, data):
             allure.attach(name="实际code", body=str(code))
             allure.attach(name="期望code", body=str(expected_code))
             allure.attach(name='实际data', body=str(data))
-        if int(code) != expected_code:
+        if int(code) != int(expected_code):
             raise Exception("接口状态码错误！\n %s != %s" % (code, expected_code))
 
     elif check_type == 'check_json':
@@ -153,7 +152,7 @@ def check_result(case_data, code, data):
             allure.attach(name="期望code", body=str(expected_code))
             allure.attach(name='实际data', body=str(data))
             allure.attach(name='期望data', body=str(expected_result))
-        if int(code) == expected_code:
+        if int(code) == int(expected_code):
             if not data:
                 data = "{}"
             check_json(expected_result, data)
@@ -166,7 +165,7 @@ def check_result(case_data, code, data):
             allure.attach(name="期望code", body=str(expected_code))
             allure.attach(name='实际data', body=str(data))
             allure.attach(name='期望data', body=str(expected_result))
-        if int(code) == expected_code:
+        if int(code) == int(expected_code):
             result = operator.eq(expected_result, data)
             if not result:
                 raise Exception("完全校验失败！ %s ! = %s" % (expected_result, data))
@@ -174,7 +173,7 @@ def check_result(case_data, code, data):
             raise Exception("接口状态码错误！\n %s != %s" % (code, expected_code))
 
     elif check_type == 'regular_check':
-        if int(code) == expected_code:
+        if int(code) == int(expected_code):
             try:
                 result = ""
                 if isinstance(expected_result, list):

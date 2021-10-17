@@ -6,7 +6,6 @@
 import logging
 import allure
 import time
-from config import INTERVAL
 from comm.unit import apiMethod
 
 
@@ -135,5 +134,5 @@ def send_request(test_info, case_data):
     else:
         result = {"code": None, "data": None}
     logging.info("请求接口结果：\n %s" % str(result))
-    time.sleep(INTERVAL)
+    time.sleep(1)
     return result

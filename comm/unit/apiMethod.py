@@ -11,9 +11,9 @@ import requests
 import simplejson
 from requests_toolbelt import MultipartEncoder
 from comm.utils.readYaml import write_yaml_file, read_yaml_data
-from config import API_CONFIG, PROJECT_NAME, PAGE_DIR
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+API_CONFIG = str(os.path.realpath(__file__)).split('comm')[0] + 'config.yml'
 
 
 def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies=None):
@@ -37,7 +37,7 @@ def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies
                 if ':' in value:
                     file_path = value
                 else:
-                    file_path = PAGE_DIR + value
+                    file_path = os.path.join(str(os.path.realpath(__file__)).split('comm')[0], value)
                 files[key] = (os.path.basename(file_path), open(file_path, 'rb'))
         enc = MultipartEncoder(
             fields=files,
@@ -50,7 +50,7 @@ def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies
                                  timeout=timeout,
                                  cookies=cookies,
                                  verify=False)
-    elif 'application/x-www-form-urlencoded' in mime_type:
+    elif 'x-www-form-urlencoded' in mime_type:
         response = requests.post(url=address,
                                  data=data,
                                  headers=headers,
@@ -207,7 +207,7 @@ def save_cookie(headers, address, mime_type, timeout=8, data=None, files=None, c
         cookies = response.cookies.get_dict()
         # 读取api配置并写入最新的cookie结果
         aconfig = read_yaml_data(API_CONFIG)
-        aconfig[PROJECT_NAME]['cookies'] = cookies
+        aconfig['cookies'] = cookies
         write_yaml_file(API_CONFIG, aconfig)
         logging.debug("cookies已保存，结果为：{}".format(cookies))
     except json.decoder.JSONDecodeError:

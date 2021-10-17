@@ -8,9 +8,9 @@ import time
 import json
 import os
 from json import JSONDecodeError
-from config import PAGE_DIR, PROJECT_NAME, API_CONFIG
 from comm.unit import apiSend, readRelevance, replaceRelevance
 from comm.utils import readYaml
+API_CONFIG = str(os.path.realpath(__file__)).split('comm')[0] + 'config.yml'
 
 
 def read_json(summary, json_obj, case_path):
@@ -39,20 +39,24 @@ def read_json(summary, json_obj, case_path):
             raise Exception("用例关联的文件有误\n文件路径： %s" % json_obj)
 
 
-def prepare_case(pre_case_path, relevance):
+def prepare_case(pre_case_path, relevance, test_suite):
     """
     调用前置接口并返回响应消息体
     :param pre_case_path: 前置用例
     :param relevance: 关联值对象
+    :param test_suite: 用例集
     :return:
     """
     # 获取前置接口用例
     logging.info("获取前置接口测试用例：{}".format(pre_case_path))
-    pre_case_yaml = PAGE_DIR + pre_case_path
-    pre_case_path = os.path.dirname(pre_case_yaml)
-    pre_case_dict = readYaml.read_yaml_data(pre_case_yaml)
+    for each in test_suite:
+        if each['test_info']['title'] == pre_case_path:
+            pre_case_dict = each
+            break
+    else:
+        raise Exception("前置接口测试用例不存在：{}".format(pre_case_path))
     pre_test_info = pre_case_dict['test_info']
-    pre_case_data = pre_case_dict['test_case'][0]
+    pre_case_data = pre_case_dict['test_case']
     # 判断前置接口是否也存在前置接口
     if pre_test_info["premise"]:
         init_premise(pre_test_info, pre_case_data, pre_case_path)
@@ -61,11 +65,6 @@ def prepare_case(pre_case_path, relevance):
         # 处理前置接口测试信息
         pre_test_info = replaceRelevance.replace(pre_test_info, relevance)
         logging.debug("测试信息处理结果：{}".format(pre_test_info))
-        # 处理前置接口Cookies
-        if pre_test_info['cookies']:
-            aconfig = readYaml.read_yaml_data(API_CONFIG)
-            cookies = aconfig[PROJECT_NAME]['cookies']
-            logging.debug("请求Cookies处理结果：{}".format(cookies))
         # 处理前置接口入参：获取入参-替换关联值-发送请求
         pre_parameter = read_json(pre_case_data['summary'], pre_case_data['parameter'], pre_case_path)
         pre_parameter = replaceRelevance.replace(pre_parameter, relevance)
@@ -84,33 +83,25 @@ def prepare_case(pre_case_path, relevance):
         raise Exception("获取前置接口关联数据失败！")
 
 
-def init_premise(test_info, case_data, case_path):
+def init_premise(test_info, case_data, test_suite):
     """用例前提条件执行，提取关键值
 
     :param test_info: 测试信息
     :param case_data: 用例数据
-    :param case_path: 用例路径
+    :param test_suite: 用例集
     :return:
     """
     # 获取项目公共关联值
-    aconfig = readYaml.read_yaml_data(API_CONFIG)
-    __relevance = aconfig[PROJECT_NAME]
-
-    # 处理Cookies
-    if test_info['cookies']:
-        cookies = aconfig[PROJECT_NAME]['cookies']
-        logging.debug("请求Cookies处理结果：{}".format(cookies))
+    __relevance = readYaml.read_yaml_data(API_CONFIG)
 
     # 判断是否存在前置接口
-    pre_case_path_list = test_info["premise"]
+    pre_case_path_list = test_info["premise"].replace(' ', '')
     if pre_case_path_list:
-        if isinstance(pre_case_path_list, list):
-            data = []
-            for pre_case_path in pre_case_path_list:
-                each_data = prepare_case(pre_case_path, __relevance)
-                data.append(each_data)
-        else:
-            data = prepare_case(pre_case_path_list, __relevance)
+        pre_case_path_list = pre_case_path_list.split(',')
+        data = list()
+        for pre_case_path in pre_case_path_list:
+            each_data = prepare_case(pre_case_path, __relevance, test_suite)
+            data.append(each_data)
 
         # 处理测试信息
         __relevance = readRelevance.get_relevance(data, test_info, __relevance)
@@ -118,14 +109,14 @@ def init_premise(test_info, case_data, case_path):
         logging.debug("测试信息处理结果：{}".format(test_info))
 
         # 处理当前接口入参：获取入参-获取关联值-替换关联值
-        parameter = read_json(case_data['summary'], case_data['parameter'], case_path)
+        parameter = case_data['parameter']
         __relevance = readRelevance.get_relevance(data, parameter, __relevance)
         parameter = replaceRelevance.replace(parameter, __relevance)
         case_data['parameter'] = parameter
         logging.debug("请求参数处理结果：{}".format(parameter))
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
-        expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
+        expected_rs = case_data['check_body']['expected_result']
         # 判断是否存在请求参数
         if parameter:
             msg_body = parameter.copy()
@@ -143,18 +134,16 @@ def init_premise(test_info, case_data, case_path):
         logging.debug("测试信息处理结果：{}".format(test_info))
 
         # 处理当前接口入参：获取入参-获取关联值-替换关联值
-        parameter = read_json(case_data['summary'], case_data['parameter'], case_path)
+        parameter = case_data['parameter']
         parameter = replaceRelevance.replace(parameter, __relevance)
         case_data['parameter'] = parameter
         logging.debug("请求参数处理结果：{}".format(parameter))
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
-        expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
+        expected_rs = case_data['check_body']['expected_result']
         __relevance = readRelevance.get_relevance(parameter, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
-
-
 
     return test_info, case_data
