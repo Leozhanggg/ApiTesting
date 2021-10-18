@@ -66,21 +66,32 @@ def replace_relevance(param, relevance=None):
 				# 关联参数多值时指定索引值替换
 				mark = re.findall(r"\[\-?[0-9]*\]", each)
 				# 判断关联参数是否指定索引值var[n]
-				if mark:
+				if len(mark)==0:
+					if isinstance(relevance[each], list):
+						value = relevance[each][0]
+					else:
+						value = relevance[each]
+				elif len(mark)==1:
 					var = each.strip(mark[0])
 					n = int(mark[0].strip('[').strip(']'))
 					value = relevance[var][n]
 					each = each.replace('[', '\[').replace(']', '\]')
 				else:
-					if isinstance(relevance[each], list):
-						value = relevance[each][0]
-					else:
-						value = relevance[each]
+					var = each
+					for m in mark:
+						var = var.replace(m, '')
+					n1 = int(mark[0].strip('[').strip(']'))
+					n2 = int(mark[1].strip('[').strip(']'))
+					value = relevance[var][n1][n2]
+					each = each.replace('[', '\[').replace(']', '\]')
 
 				# 生成正在表达式并替换关联参数
 				pattern = re.compile('\${' + each + '}')
 				try:
-					param = re.sub(pattern, value, param)
+					if param.strip('${' + each + '}'):
+						param = re.sub(pattern, str(value), param)
+					else:
+						param = re.sub(pattern, value, param)
 				except TypeError:
 					param = value
 			except KeyError:

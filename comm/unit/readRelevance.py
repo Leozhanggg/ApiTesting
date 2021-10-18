@@ -25,8 +25,18 @@ def get_value(data, value):
         #     for key in data:
         #         __relevance = get_value(data[key], value)
         for key in data:
-            if isinstance(data[key], dict) or isinstance(data[key], list):
+            if isinstance(data[key], dict):
                 get_value(data[key], value)
+            elif isinstance(data[key], list):
+                for each in data[key]:
+                    if isinstance(each, dict):
+                        get_value(each, value)
+                # for each in data[key]:
+                #     if isinstance(each, dict):
+                #         break
+                else:
+                    if key == value:
+                        __relevance.append(data[key])
             else:
                 if key == value:
                     __relevance.append(data[key])
@@ -54,8 +64,11 @@ def get_relevance(data, relevance_list, relevance=None):
     # 去除参数[n]标识
     for index, value in enumerate(relevance_list):
         mark = re.findall(r"\[\-?[0-9]*\]",  value)
-        if mark:
-            relevance_list[index] = value.strip(mark[0])
+        # if mark:
+        #     relevance_list[index] = value.strip(mark[0])
+        for m in mark:
+            value = value.replace(m, '')
+        relevance_list[index] = value
 
     # 去除重复参数
     relevance_list = list(set(relevance_list))
