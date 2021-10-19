@@ -51,6 +51,7 @@ def prepare_case(pre_case_path, relevance):
     pre_case_dict = readYaml.read_yaml_data(pre_case_yaml)
     pre_test_info = pre_case_dict['test_info']
     pre_case_data = pre_case_dict['test_case'][0]
+
     # 判断前置接口是否也存在前置接口
     if pre_test_info["premise"]:
         init_premise(pre_test_info, pre_case_data, pre_case_path)
@@ -59,11 +60,7 @@ def prepare_case(pre_case_path, relevance):
         # 处理前置接口测试信息
         pre_test_info = replaceRelevance.replace(pre_test_info, relevance)
         logging.debug("测试信息处理结果：{}".format(pre_test_info))
-        # 处理前置接口Cookies
-        if pre_test_info['cookies']:
-            aconfig = readYaml.read_yaml_data(API_CONFIG)
-            cookies = aconfig[PROJECT_NAME]['cookies']
-            logging.debug("请求Cookies处理结果：{}".format(cookies))
+
         # 处理前置接口入参：获取入参-替换关联值-发送请求
         pre_parameter = read_json(pre_case_data['summary'], pre_case_data['parameter'], pre_case_path)
         pre_parameter = replaceRelevance.replace(pre_parameter, relevance)
@@ -96,21 +93,17 @@ def init_premise(test_info, case_data, case_path):
     # 处理测试信息
     test_info = replaceRelevance.replace(test_info, __relevance)
     logging.debug("测试信息处理结果：{}".format(test_info))
-    # 处理Cookies
-    if test_info['cookies']:
-        cookies = aconfig[PROJECT_NAME]['cookies']
-        logging.debug("请求Cookies处理结果：{}".format(cookies))
 
     # 判断是否存在前置接口
-    pre_case_path_list = test_info["premise"]
-    if pre_case_path_list:
-        if isinstance(pre_case_path_list, list):
+    pre_case_path = test_info["premise"]
+    if pre_case_path:
+        if isinstance(pre_case_path, list):
             data = []
-            for pre_case_path in pre_case_path_list:
-                each_data = prepare_case(pre_case_path, __relevance)
+            for each in pre_case_path:
+                each_data = prepare_case(each, __relevance.copy())
                 data.append(each_data)
         else:
-            data = prepare_case(pre_case_path_list, __relevance)
+            data = prepare_case(pre_case_path, __relevance.copy())
 
         # 处理当前接口入参：获取入参-获取关联值-替换关联值
         parameter = read_json(case_data['summary'], case_data['parameter'], case_path)
@@ -121,9 +114,10 @@ def init_premise(test_info, case_data, case_path):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
-        msg_body = parameter.copy()
-        msg_body['pre_response'] = data
-        __relevance = readRelevance.get_relevance(msg_body, expected_rs, __relevance)
+        # msg_body = parameter.copy()
+        # msg_body['pre_response'] = data
+        # __relevance = readRelevance.get_relevance(msg_body, expected_rs, __relevance)
+        __relevance = readRelevance.get_relevance(data, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
@@ -137,7 +131,7 @@ def init_premise(test_info, case_data, case_path):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = read_json(case_data['summary'], case_data['check_body']['expected_result'], case_path)
-        __relevance = readRelevance.get_relevance(parameter, expected_rs, __relevance)
+        # __relevance = readRelevance.get_relevance(parameter, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))

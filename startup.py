@@ -42,7 +42,8 @@ if __name__ == '__main__':
                  '--reruns', str(RC['reruns']),
                  '--maxfail', str(RC['maxfail']),
                  '--alluredir', REPORT_DIR+'/xml',
-                 '--clean-alluredir']
+                 '--clean-alluredir',
+                 '--disable-warnings']
     # 判断是否开启用例匹配
     if RC['pattern']:
         args_list += ['-k ' + str(RC['pattern'])]

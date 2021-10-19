@@ -48,7 +48,7 @@ def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies
                                  timeout=timeout,
                                  cookies=cookies,
                                  verify=False)
-    elif 'application/json' in mime_type:
+    elif 'x-www-form-urlencoded' in mime_type:
         response = requests.post(url=address,
                                  data=data,
                                  headers=headers,
