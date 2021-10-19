@@ -12,7 +12,7 @@ from comm.unit.checkResult import check_result
 from comm.utils.readYaml import read_yaml_data, write_yaml_file
 from comm.script import init_case
 excel = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'test_case.xlsx')
-test_data_1, test_name_1 = init_case.get_test_data(excel, 'Sheet1')
+test_data_1, test_name_1 = init_case.get_test_data(excel, '普通租户开立')
 # test_data_2, test_name_2 = init_case.get_test_data(excel, 'Sheet2')
 
 

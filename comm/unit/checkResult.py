@@ -146,6 +146,21 @@ def check_result(case_data, code, data):
         if int(code) != int(expected_code):
             raise Exception("接口状态码错误！\n %s != %s" % (code, expected_code))
 
+    elif check_type == 'check_contain':
+        with allure.step("校验接口结果包含"):
+            allure.attach(name="实际code", body=str(code))
+            allure.attach(name="期望code", body=str(expected_code))
+            allure.attach(name='实际data', body=str(data))
+            allure.attach(name='期望data', body=str(expected_result))
+        if int(code) == int(expected_code):
+            if not data:
+                data = ""
+            for each in expected_result:
+                if str(each) not in str(data):
+                    raise Exception("包含校验失败！ %s not in %s" % (expected_result, data))
+        else:
+            raise Exception("接口状态码错误！\n %s != %s" % (code, expected_code))
+
     elif check_type == 'check_json':
         with allure.step("JSON格式校验接口"):
             allure.attach(name="实际code", body=str(code))

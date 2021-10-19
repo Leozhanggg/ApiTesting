@@ -78,3 +78,9 @@ def get_test_data(excel, sheet):
                 logging.info("正在获取用例：{}".format(case))
         logging.info("获取测试数据完成!")
         return test_data, test_name
+
+
+if __name__ == '__main__':
+    import os
+    excel = str(os.path.realpath(__file__)).split('comm')[0] + 'testcase/test_case.xlsx'
+    print(get_test_data(excel, 'Sheet1'))

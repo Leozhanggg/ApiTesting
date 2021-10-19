@@ -13,6 +13,14 @@ from comm.utils import readYaml
 API_CONFIG = str(os.path.realpath(__file__)).split('comm')[0] + 'config.yml'
 
 
+def save_token(case_data, rsp_data):
+    if case_data['test_info']['address'] == '/api/blade-auth/oauth/token':
+        # 把获取的token保存配置文件中
+        cfg = readYaml.read_yaml_data(API_CONFIG)
+        cfg['headers']['Blade-Auth'] = 'Bearer ' + rsp_data['access_token']
+        readYaml.write_yaml_file(API_CONFIG, cfg)
+
+
 def read_json(summary, json_obj, case_path):
     """
     校验内容读取
@@ -39,41 +47,41 @@ def read_json(summary, json_obj, case_path):
             raise Exception("用例关联的文件有误\n文件路径： %s" % json_obj)
 
 
-def prepare_case(pre_case_path, relevance, test_suite):
+def prepare_case(pre_case_title, relevance, test_suite):
     """
     调用前置接口并返回响应消息体
-    :param pre_case_path: 前置用例
+    :param pre_case_title: 前置用例
     :param relevance: 关联值对象
     :param test_suite: 用例集
     :return:
     """
     # 获取前置接口用例
-    logging.info("获取前置接口测试用例：{}".format(pre_case_path))
+    logging.info("获取前置接口测试用例：{}".format(pre_case_title))
     for each in test_suite:
-        if each['test_info']['title'] == pre_case_path:
-            pre_case_dict = each
+        if each['test_info']['title'] == pre_case_title:
+            pre_case_data = each
             break
     else:
-        raise Exception("前置接口测试用例不存在：{}".format(pre_case_path))
-    pre_test_info = pre_case_dict['test_info']
-    pre_case_data = pre_case_dict['test_case']
+        raise Exception("前置接口测试用例不存在：{}".format(pre_case_title))
+    pre_test_info = pre_case_data['test_info']
+    pre_test_case = pre_case_data['test_case']
     # 判断前置接口是否也存在前置接口
     if pre_test_info["premise"]:
-        init_premise(pre_test_info, pre_case_data, pre_case_path)
+        init_premise(pre_test_info["premise"], relevance, test_suite)
 
     for i in range(3):
         # 处理前置接口测试信息
         pre_test_info = replaceRelevance.replace(pre_test_info, relevance)
         logging.debug("测试信息处理结果：{}".format(pre_test_info))
         # 处理前置接口入参：获取入参-替换关联值-发送请求
-        pre_parameter = read_json(pre_case_data['summary'], pre_case_data['parameter'], pre_case_path)
-        pre_parameter = replaceRelevance.replace(pre_parameter, relevance)
-        pre_case_data['parameter'] = pre_parameter
+        pre_parameter = replaceRelevance.replace(pre_test_case['parameter'], relevance)
+        pre_test_case['parameter'] = pre_parameter
         logging.debug("请求参数处理结果：{}".format(pre_parameter))
         logging.info("执行前置接口测试用例：{}".format(pre_test_info))
-        code, data = apiSend.send_request(pre_test_info, pre_case_data)
+        code, data = apiSend.send_request(pre_test_info, pre_test_case)
         # 检查接口是否调用成功
         if data:
+            save_token(pre_case_data, data)
             return data
         else:
             time.sleep(1)
@@ -95,12 +103,12 @@ def init_premise(test_info, case_data, test_suite):
     __relevance = readYaml.read_yaml_data(API_CONFIG)
 
     # 判断是否存在前置接口
-    pre_case_path_list = test_info["premise"].replace(' ', '')
-    if pre_case_path_list:
-        pre_case_path_list = pre_case_path_list.split(',')
+    pre_case_title_list = test_info["premise"].replace(' ', '')
+    if pre_case_title_list:
+        pre_case_title_list = pre_case_title_list.split(',')
         data = list()
-        for pre_case_path in pre_case_path_list:
-            each_data = prepare_case(pre_case_path, __relevance, test_suite)
+        for pre_case_title in pre_case_title_list:
+            each_data = prepare_case(pre_case_title, __relevance, test_suite)
             data.append(each_data)
 
         # 处理测试信息

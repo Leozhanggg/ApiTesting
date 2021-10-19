@@ -1,0 +1,12 @@
+
+*.xml
+*.pyc
+*.log
+*.attach
+*.csv
+*.json
+*.txt
+*.html
+*.js
+*.css
+*.ico
