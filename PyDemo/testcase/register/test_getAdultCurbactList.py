@@ -10,20 +10,20 @@ from comm.utils.readYaml import read_yaml_data
 from comm.unit.initializePremise import init_premise
 from comm.unit.apiSend import send_request
 from comm.unit.checkResult import check_result
-case_yaml = os.path.realpath(__file__).replace('testcase', 'page').replace('.py', '.yaml')
-case_path = os.path.dirname(case_yaml)
-case_dict = read_yaml_data(case_yaml)
+file_path = os.path.realpath(__file__).replace('\\', '/')
+case_yaml = file_path.replace('/testcase/', '/page/').replace('.py', '.yaml')
+test_case = read_yaml_data(case_yaml)
 
 
-@allure.feature(case_dict["test_info"]["title"])
+@allure.feature(test_case["test_info"]["title"])
 class TestRegister:
 
-    @pytest.mark.parametrize("case_data", case_dict["test_case"])
+    @pytest.mark.parametrize("test_case", test_case["test_case"])
     @allure.story("test_getAdultCurbactList")
-    def test_getAdultCurbactList(self, case_data):
+    def test_getAdultCurbactList(self, test_case):
         # 初始化请求：执行前置接口+替换关联变量
-        test_info, case_data = init_premise(case_dict["test_info"], case_data, case_path)
+        test_info, test_case = init_premise(test_case["test_info"], test_case, case_yaml)
         # 发送当前接口
-        code, data = send_request(test_info, case_data)
+        code, data = send_request(test_info, test_case)
         # 校验接口返回
-        check_result(case_data, code, data)
+        check_result(test_case, code, data)

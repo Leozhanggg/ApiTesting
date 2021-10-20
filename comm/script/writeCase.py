@@ -30,7 +30,7 @@ def write_case(case_path, auto_yaml=True):
     # 遍历测试用例列表
     for yaml_file in yaml_list:
         test_data = read_yaml_data(yaml_file)
-        test_script = yaml_file.replace('page', 'testcase').replace('.yaml', '.py')
+        test_script = yaml_file.replace('\\', '/').replace('/page/', '/testcase/').replace('.yaml', '.py')
         # case_name = os.path.basename(test_script).replace('.py', '')
         case_path = os.path.dirname(test_script)
         # 判断文件路径是否存在

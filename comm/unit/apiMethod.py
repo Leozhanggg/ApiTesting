@@ -12,6 +12,8 @@ import simplejson
 from requests_toolbelt import MultipartEncoder
 from comm.utils.readYaml import write_yaml_file, read_yaml_data
 from config import API_CONFIG, PROJECT_NAME, PAGE_DIR
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies=None):
@@ -56,6 +58,7 @@ def post(headers, address, mime_type, timeout=10, data=None, files=None, cookies
                                  files=files,
                                  cookies=cookies,
                                  verify=False)
+    # elif 'application/json' in mime_type:
     else:
         response = requests.post(url=address,
                                  json=data,

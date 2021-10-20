@@ -84,9 +84,10 @@ def parse_request_parameter(har_ct):
         raise e
 
 
-def init_test_case(har_ct, module_path, parameter):
-    path = har_ct["path"]
-    title = path.split("/")[-1].replace('-', '')
+def init_test_case(har_ct, module_path, parameter, file_name):
+    # path = har_ct["path"]
+    # title = path.split("/")[-1].replace('-', '')
+    title = file_name
     # 定义测试用例
     test_case = dict()
     test_case["summary"] = title
@@ -143,7 +144,8 @@ def write_case_yaml(har_path):
     logging.info("读取抓包文件主目录: {}".format(har_path))
     har_list = os.listdir(har_path)
     for each in har_list:
-        ext_name = os.path.splitext(each)[1]
+        # ext_name = os.path.splitext(each)[1]
+        file_name, ext_name = os.path.splitext(each)
         if ext_name == '.chlsj':
 
             logging.info("读取抓包文件: {}".format(each))
@@ -155,7 +157,8 @@ def write_case_yaml(har_path):
                 # 获取接口基本信息
                 method = har_ct["method"]
                 path = har_ct["path"]
-                title = path.split("/")[-1].replace('-', '')
+                title = file_name
+                # title = path.split("/")[-1].replace('-', '')
                 module = path.split("/")[-2].replace('-', '')
                 module_path = har_path.split('data')[0] + '/page/' + module
 
@@ -172,7 +175,7 @@ def write_case_yaml(har_path):
                 parameter = parse_request_parameter(har_ct)
 
                 # 初始化测试用例
-                test_case = init_test_case(har_ct, module_path, parameter)
+                test_case = init_test_case(har_ct, module_path, parameter, file_name)
 
                 # 定义测试信息
                 test_info = dict()
