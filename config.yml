@@ -1,8 +1,8 @@
 sysTenantId: '000000'
 sysUsername: admin
-sysPassword: wimi123456,
+sysPassword: 123456
 scheme: https
-host: alpha.masterlink.cloud:443
+host: www.test.com:443
 headers:
   Content-Type: application/json
   Authorization: Basic c2FiZXI6c2FiZXJfc2VjcmV0

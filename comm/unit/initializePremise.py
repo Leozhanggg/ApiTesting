@@ -13,12 +13,12 @@ from comm.utils import readYaml
 API_CONFIG = str(os.path.realpath(__file__)).split('comm')[0] + 'config.yml'
 
 
-def save_token(case_data, rsp_data):
-    if case_data['test_info']['address'] == '/api/blade-auth/oauth/token':
-        # 把获取的token保存配置文件中
-        cfg = readYaml.read_yaml_data(API_CONFIG)
-        cfg['headers']['Blade-Auth'] = 'Bearer ' + rsp_data['access_token']
-        readYaml.write_yaml_file(API_CONFIG, cfg)
+# def save_token(case_data, rsp_data):
+#     if case_data['test_info']['address'] == '/api/blade-auth/oauth/token':
+#         # 把获取的token保存配置文件中
+#         cfg = readYaml.read_yaml_data(API_CONFIG)
+#         cfg['headers']['Blade-Auth'] = 'Bearer ' + rsp_data['access_token']
+#         readYaml.write_yaml_file(API_CONFIG, cfg)
 
 
 def read_json(summary, json_obj, case_path):
@@ -81,7 +81,7 @@ def prepare_case(pre_case_title, relevance, test_suite):
         code, data = apiSend.send_request(pre_test_info, pre_test_case)
         # 检查接口是否调用成功
         if data:
-            save_token(pre_case_data, data)
+            # save_token(pre_case_data, data)
             return data
         else:
             time.sleep(1)
