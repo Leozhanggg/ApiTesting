@@ -73,12 +73,14 @@ def prepare_case(pre_case_title, relevance, test_suite):
         # 处理前置接口测试信息
         pre_test_info = replaceRelevance.replace(pre_test_info, relevance)
         logging.debug("测试信息处理结果：{}".format(pre_test_info))
+
         # 处理前置接口入参：获取入参-替换关联值-发送请求
         pre_parameter = replaceRelevance.replace(pre_test_case['parameter'], relevance)
         pre_test_case['parameter'] = pre_parameter
         logging.debug("请求参数处理结果：{}".format(pre_parameter))
         logging.info("执行前置接口测试用例：{}".format(pre_test_info))
         code, data = apiSend.send_request(pre_test_info, pre_test_case)
+        
         # 检查接口是否调用成功
         if data:
             # save_token(pre_case_data, data)
@@ -125,13 +127,7 @@ def init_premise(test_info, case_data, test_suite):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = case_data['check_body']['expected_result']
-        # 判断是否存在请求参数
-        if parameter:
-            msg_body = parameter.copy()
-            msg_body['pre_response'] = data
-        else:
-            msg_body = data
-        __relevance = readRelevance.get_relevance(msg_body, expected_rs, __relevance)
+        __relevance = readRelevance.get_relevance(data, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
@@ -149,7 +145,6 @@ def init_premise(test_info, case_data, test_suite):
 
         # 获取当前接口期望结果：获取期望结果-获取关联值-替换关联值
         expected_rs = case_data['check_body']['expected_result']
-        __relevance = readRelevance.get_relevance(parameter, expected_rs, __relevance)
         expected_rs = replaceRelevance.replace(expected_rs, __relevance)
         case_data['check_body']['expected_result'] = expected_rs
         logging.debug("期望返回处理结果：{}".format(case_data))
