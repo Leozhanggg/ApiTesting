@@ -205,9 +205,9 @@ def check_result(case_data, code, data):
         from comm.unit import queryDatabase as qdb
         check_db = case_data['check_db']
         # 获取数据库期望结果：获取期望结果-获取关联值-替换关联值
-        data['parameter'] = case_data['parameter']
-        __relevance = readRelevance.get_relevance(data, check_db)
-        check_db = replaceRelevance.replace(check_db, __relevance)
+        # data['parameter'] = case_data['parameter']
+        relevance = readRelevance.get_relevance(data, check_db)
+        check_db = replaceRelevance.replace(check_db, relevance)
 
         # 循环校验数据库
         for each in check_db:

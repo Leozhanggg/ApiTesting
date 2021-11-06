@@ -1,12 +1,12 @@
 test_info:
   title: register
   host: ${host}
-  scheme: http
+  scheme: ${scheme}
   method: POST
   address: /api/register/getAdultCurbactList
   mime_type: application/x-www-form-urlencoded
   headers: ${headers}
-  timeout: 10
+  timeout: ${timeout}
   file: false
   cookies: false
   premise: false
