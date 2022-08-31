@@ -21,7 +21,9 @@ def read_json(summary, json_obj, case_path):
     :param case_path: case路径
     :return:
     """
-    if isinstance(json_obj, dict):
+    if not json_obj:
+        return json_obj
+    elif isinstance(json_obj, dict):
         return json_obj
     else:
         try:
