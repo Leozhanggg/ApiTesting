@@ -57,11 +57,11 @@ def init_premise(test_info, case_data, case_path):
         logging.debug("请求Cookies处理结果：{}".format(cookies))
 
     # 判断是否存在前置接口
-    pre_case_path = test_info["premise"]
-    if pre_case_path:
+    pre_case_yaml = test_info["premise"]
+    if pre_case_yaml:
         # 获取前置接口用例
-        logging.info("获取前置接口测试用例：{}".format(pre_case_path))
-        pre_case_yaml = PAGE_DIR + pre_case_path
+        logging.info("获取前置接口测试用例：{}".format(pre_case_yaml))
+        pre_case_yaml = PAGE_DIR + pre_case_yaml
         pre_case_path = os.path.dirname(pre_case_yaml)
         pre_case_dict = readYaml.read_yaml_data(pre_case_yaml)
         pre_test_info = pre_case_dict['test_info']
