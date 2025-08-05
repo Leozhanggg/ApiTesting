@@ -7,7 +7,7 @@ requests==2.24.0
 requests-toolbelt==0.9.1
 simplejson==3.17.2
 ruamel.yaml==0.16.12
-#PyYAML==5.3.1
+PyYAML==5.3.1
 configparser==5.0.0
 python-dateutil==2.8.0
 #elasticsearch==7.13.4
